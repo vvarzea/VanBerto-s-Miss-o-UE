@@ -1,0 +1,484 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+
+html, body {
+  margin: 0; padding: 0;
+  background: #03103a;
+  font-family: 'Lora', Georgia, serif;
+  overflow: hidden;
+  height: 100dvh;
+}
+
+#game { width: 100vw; height: 100dvh; }
+canvas { width: 100% !important; height: 100% !important; display: block; touch-action: none; }
+
+/* =====================================================
+   OVERLAY — efeito de vela/luz ambiente animada
+   ===================================================== */
+.overlay {
+  position: fixed; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2000; padding: 16px;
+  overflow-y: auto;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 48%,
+      rgba(26,80,180,0.22) 0%, rgba(3,16,58,0) 55%, rgba(2,8,30,0.90) 100%),
+    rgba(2,8,30,0.85);
+  animation: candleFlicker 6s ease-in-out infinite;
+}
+
+@keyframes candleFlicker {
+  0%,100% { background:
+    radial-gradient(ellipse 70% 60% at 50% 48%,
+      rgba(26,80,180,0.22) 0%, rgba(3,16,58,0) 55%, rgba(2,8,30,0.90) 100%),
+    rgba(2,8,30,0.85); }
+  25% { background:
+    radial-gradient(ellipse 68% 58% at 51% 46%,
+      rgba(30,90,200,0.28) 0%, rgba(3,16,58,0) 55%, rgba(10,4,0,0.90) 100%),
+    rgba(2,8,30,0.85); }
+  60% { background:
+    radial-gradient(ellipse 72% 62% at 49% 50%,
+      rgba(20,70,160,0.18) 0%, rgba(3,16,58,0) 55%, rgba(10,4,0,0.86) 100%),
+    rgba(2,8,30,0.85); }
+}
+
+.hidden { display: none; }
+
+/* =====================================================
+   CARD — pergaminho séc. XIX com textura de papel e selo
+   ===================================================== */
+.card {
+  width: min(580px, 96vw);
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E"),
+    linear-gradient(160deg, #0d1f5c 0%, #071440 60%, #041030 100%);
+  border: 3px solid #d4af37;
+  border-radius: 4px;
+  box-shadow:
+    8px 8px 0 #0a1840,
+    0 0 60px rgba(212,175,55,0.18),
+    inset 0 1px 0 rgba(212,175,55,0.15),
+    inset 0 -1px 0 rgba(26,48,112,0.3);
+  padding: 22px 22px 16px;
+  position: relative;
+  animation: cardPop 0.22s cubic-bezier(.34,1.56,.64,1) both;
+}
+
+/* Cantos decorativos florais */
+.card::before {
+  content: '❧';
+  position: absolute;
+  top: 8px; left: 12px;
+  font-size: 22px; color: #d4af37; opacity: 0.5;
+}
+.card::after {
+  content: '❧';
+  position: absolute;
+  bottom: 8px; right: 12px;
+  font-size: 22px; color: #d4af37; opacity: 0.5;
+  transform: rotate(180deg);
+}
+
+/* Selo decorativo estilo séc. XIX no canto superior direito */
+.card-seal {
+  position: absolute;
+  top: 10px; right: 10px;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  border: 2px solid rgba(212,175,55,0.35);
+  background:
+    radial-gradient(circle at 40% 35%, rgba(212,175,55,0.4), rgba(26,80,180,0.2)),
+    repeating-conic-gradient(rgba(212,175,55,0.10) 0deg 9deg, transparent 9deg 18deg);
+  box-shadow: inset 0 0 6px rgba(212,175,55,0.2), 0 1px 4px rgba(0,0,0,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; color: #d4af37; opacity: 0.75;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes cardPop {
+  from { transform: scale(0.9) rotate(-1deg); opacity: 0; }
+  to   { transform: scale(1)   rotate(0deg);  opacity: 1; }
+}
+
+.card h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 20px; font-weight: 900;
+  color: #d4af37; margin: 0 0 10px;
+  text-align: center; letter-spacing: 0.5px;
+  border-bottom: 2px solid #d4af37;
+  padding-bottom: 8px;
+  text-shadow: 0 1px 8px rgba(212,175,55,0.3);
+}
+.card h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 17px; font-weight: 700;
+  color: #d4af37; margin: 0 0 10px;
+  text-align: center;
+  text-shadow: 0 1px 4px rgba(212,175,55,0.2);
+}
+
+.sub  { margin: 0 0 10px; color: #a8b8e0; font-size: 14px; }
+.desc { margin: 8px 0 4px; color: #c0ccf0; font-size: 14px; line-height: 1.6; }
+
+.row {
+  display: flex; gap: 10px; justify-content: center;
+  margin-top: 14px; flex-wrap: wrap;
+}
+
+/* =====================================================
+   BOTÕES — estilo séc. XIX melhorado
+   ===================================================== */
+.btn {
+  font-family: 'Cinzel', serif;
+  border: 2.5px solid #d4af37;
+  background: linear-gradient(180deg, #1a3080 0%, #0d2060 100%);
+  color: #d4af37;
+  border-radius: 3px;
+  padding: 9px 16px;
+  font-weight: 700; font-size: 13px;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 #0a1840, inset 0 1px 0 rgba(212,175,55,0.15);
+  user-select: none; letter-spacing: 0.4px;
+  transition: background 0.12s, transform 0.08s, box-shadow 0.08s;
+}
+.btn:hover:not(:disabled) {
+  background: linear-gradient(180deg, #203898 0%, #122870 100%);
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 #0a1840, inset 0 1px 0 rgba(212,175,55,0.2);
+}
+.btn:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #0a1840;
+}
+.btn:disabled { cursor: default; opacity: 0.6; }
+
+.btn.primary {
+  background: linear-gradient(180deg, #d4af37 0%, #b8922a 100%);
+  color: #03103a;
+  border-color: #d4af37;
+  box-shadow: 4px 4px 0 #0a1840, inset 0 1px 0 rgba(255,220,100,0.25);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+.btn.primary:hover:not(:disabled) {
+  background: linear-gradient(180deg, #e8c040 0%, #c8a030 100%);
+}
+
+#quizAnswers .btn {
+  width: 100%; text-align: center; font-size: 13px;
+  transition: background 0.18s, border-color 0.18s, opacity 0.18s, transform 0.08s;
+}
+
+.tiny {
+  margin-top: 12px; font-size: 11px;
+  color: #a8b8e0; opacity: 0.85; font-style: italic;
+}
+.list { margin: 10px 0 0 20px; color: #c0ccf0; font-size: 13px; line-height: 1.8; }
+.q { font-weight: 600; color: #e8eeff; font-size: 14px; line-height: 1.5; }
+.answers { display: grid; gap: 8px; margin: 12px 0; }
+.feedback { min-height: 22px; font-weight: 700; white-space: pre-line; font-size: 13px; }
+.explanation {
+  background: rgba(26,48,112,0.25);
+  border-left: 3px solid #d4af37;
+  border-radius: 2px; padding: 8px 12px;
+  font-size: 12px; font-style: italic;
+  color: #c0ccf0; margin: 4px 0 8px; line-height: 1.6;
+}
+
+/* =====================================================
+   CARD DA HISTÓRIA — pergaminho escuro com textura
+   ===================================================== */
+.history-card {
+  width: min(620px, 96vw) !important;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E"),
+    linear-gradient(160deg, #050e2a 0%, #0a1840 100%) !important;
+  border: 3px solid #d4af37 !important;
+  box-shadow:
+    8px 8px 0 rgba(200,164,110,0.2),
+    0 0 50px rgba(212,175,55,0.12),
+    inset 0 1px 0 rgba(212,175,55,0.12) !important;
+  color: #c0ccf0;
+}
+
+.history-header {
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 14px; border-bottom: 1px solid rgba(212,175,55,0.3);
+  padding-bottom: 12px;
+}
+.history-icon { font-size: 40px; flex-shrink: 0; }
+
+.history-card h2 {
+  color: #d4af37 !important; font-size: 18px; margin: 0 0 2px;
+  font-family: 'Cinzel', serif; border: none; padding: 0;
+  text-shadow: 0 1px 8px rgba(212,175,55,0.4);
+}
+.history-subtitle {
+  margin: 0; font-size: 11px; color: #a8b8e0;
+  font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
+  font-family: 'Cinzel', serif;
+}
+
+/* Texto da história com animação de entrada suave */
+.history-text {
+  font-size: 14px; line-height: 1.85; color: #c0ccf0;
+  white-space: pre-line; margin: 0 0 14px;
+  background: rgba(26,48,112,0.25);
+  border-left: 3px solid #d4af37;
+  border-radius: 2px; padding: 12px 14px;
+  font-style: italic;
+  animation: textReveal 0.55s ease-out both;
+  animation-delay: 0.1s;
+}
+
+@keyframes textReveal {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.history-title {
+  display: block; font-size: 15px; font-weight: 700;
+  color: #d4af37; margin-bottom: 8px;
+  font-family: 'Cinzel', serif; font-style: normal;
+  letter-spacing: 0.3px;
+  animation: titleReveal 0.35s ease-out both;
+}
+
+@keyframes titleReveal {
+  from { opacity: 0; transform: translateX(-10px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.history-card .btn.primary {
+  background: linear-gradient(180deg, #d4af37 0%, #b8922a 100%) !important;
+  color: #03103a !important;
+  border-color: #d4af37 !important;
+  box-shadow: 3px 3px 0 rgba(200,164,110,0.4) !important;
+  text-shadow: none !important;
+}
+
+/* =====================================================
+   GAME OVER
+   ===================================================== */
+.gameover-card {
+  text-align: center;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E"),
+    linear-gradient(135deg, #1a0505, #2d0a0a) !important;
+  border: 3px solid #c0392b !important;
+  box-shadow: 8px 8px 0 rgba(192,57,43,0.3), 0 0 40px rgba(192,57,43,0.12) !important;
+  color: #fde8e8;
+}
+.gameover-card h2 { color: #e87474 !important; font-size: 26px; margin: 0 0 8px; text-shadow: 0 0 20px rgba(232,116,116,0.35); }
+.gameover-card .sub { color: #f5a5a5; font-style: italic; }
+.gameover-icon { font-size: 52px; margin-bottom: 8px; animation: pulse 1s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.1)} }
+.gameover-card .btn.primary { background: linear-gradient(180deg,#cc4444,#8b2222) !important; border-color:#c0392b !important; color:white !important; }
+
+/* =====================================================
+   VITÓRIA
+   ===================================================== */
+.win-card {
+  text-align: center;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E"),
+    linear-gradient(135deg, #050e28, #0a1840) !important;
+  border: 3px solid #d4af37 !important;
+  box-shadow: 8px 8px 0 rgba(26,48,112,0.4), 0 0 40px rgba(212,175,55,0.1) !important;
+  color: #c0ccf0;
+}
+.win-card h2 { color: #d4af37 !important; font-size: 24px; margin: 0 0 6px; font-family:'Cinzel',serif; text-shadow: 0 0 24px rgba(212,175,55,0.5); }
+.win-icon { font-size: 58px; margin-bottom: 6px; animation: bounce 0.8s ease-in-out infinite alternate; }
+@keyframes bounce { from{transform:translateY(0)} to{transform:translateY(-10px)} }
+.win-name { font-size: 15px; color: #a8b8e0; margin: 0 0 14px; font-style: italic; }
+.win-name span { font-weight: 700; color: #d4af37; font-style: normal; }
+.win-stats { display: flex; flex-direction: column; gap: 8px; margin: 0 0 14px; }
+.win-stat { font-size: 14px; color: #c0ccf0; background: rgba(26,48,112,0.3); border: 1px solid rgba(212,175,55,0.15); border-radius: 3px; padding: 7px 12px; }
+.win-medal { font-size: 16px; font-weight: 700; color: #d4af37; background: rgba(212,175,55,0.12); }
+.win-card .btn.primary { background: linear-gradient(180deg,#d4af37,#b8922a) !important; border-color:#d4af37 !important; color:#03103a !important; font-size:14px; text-shadow:none !important; }
+
+/* =====================================================
+   CONFETIS
+   ===================================================== */
+.confetti { position:fixed; inset:0; pointer-events:none; z-index:3000; overflow:hidden; }
+.confetti.hidden { display:none; }
+.confetti span { position:absolute; top:-10vh; font-size:20px; animation:confettiFall linear forwards; will-change:transform; }
+@keyframes confettiFall {
+  0%   { transform:translateY(-10vh) rotate(0deg);   opacity:1; }
+  100% { transform:translateY(120vh) rotate(540deg); opacity:0.9; }
+}
+
+/* =====================================================
+   LEGENDA
+   ===================================================== */
+#legend {
+  position: fixed; left: 50%; transform: translateX(-50%);
+  bottom: 12px; z-index: 1000;
+  background: rgba(3,16,58,0.96);
+  border: 2px solid #d4af37; border-radius: 4px;
+  padding: 5px 12px;
+  font-family: 'Lora', serif; font-size: 12px; font-weight: 600;
+  color: #d4af37;
+  box-shadow: 3px 3px 0 #0a1840, 0 2px 12px rgba(0,0,0,0.15);
+  user-select: none; max-width: min(560px,92vw);
+  white-space: nowrap; text-align: center;
+}
+#legend small { font-weight: 400; opacity: 0.85; font-style: italic; }
+
+@media (max-width: 520px) {
+  #legend { bottom:auto; top:8px; font-size:10px; padding:4px 8px; }
+}
+
+/* Legenda não se sobrepõe aos touch controls em telemóveis */
+@media (max-width: 768px) {
+  body.game-started #legend { bottom:auto; top:8px; font-size:10px; padding:4px 8px; }
+}
+
+/* iOS: evitar zoom automático no campo de texto (font-size < 16px faz zoom) */
+@media (max-width: 768px) {
+  .name-row input { font-size: 16px; }
+  .card { padding: 14px 14px 12px; }
+}
+
+/* Teacher controls — em ecrãs pequenos simplifica para caber */
+@media (max-width: 600px) {
+  #teacherControls { top: 6px; right: 6px; gap: 5px; }
+  #teacherControls .btn { padding: 6px 8px; font-size: 10px; }
+  #btnContrast, #btnPresent, #btnFullscreenGame { display: none !important; }
+}
+
+/* =====================================================
+   CONTROLOS PROFESSOR
+   ===================================================== */
+#teacherControls { display: none !important; }
+body.game-started #teacherControls { display: flex !important; }
+body.presentation-mode #teacherControls { opacity:0.3; }
+body.presentation-mode #teacherControls:hover { opacity:1; }
+body.presentation-mode #legend { display:none !important; }
+body.presentation-mode #touchControls { display:none !important; }
+
+/* =====================================================
+   ALTO CONTRASTE
+   ===================================================== */
+body.high-contrast { filter: contrast(1.35) brightness(1.08); }
+
+/* =====================================================
+   FLASH AO PERDER VIDA
+   ===================================================== */
+#hitFlash {
+  position:fixed; inset:0; z-index:5000;
+  background:rgba(192,57,43,0); pointer-events:none; transition:background 0.08s;
+}
+#hitFlash.active { background:rgba(192,57,43,0.38); }
+
+/* =====================================================
+   ESTRELAS DE BÓNUS
+   ===================================================== */
+#bonusStars {
+  position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);
+  z-index:4000; pointer-events:none;
+  font-family:'Cinzel',serif; font-size:26px; font-weight:900;
+  color:#d4af37; text-align:center; white-space:pre-line;
+  text-shadow:0 2px 12px rgba(0,0,0,0.6); opacity:0; transition:opacity 0.2s;
+}
+#bonusStars.show { opacity:1; }
+
+/* =====================================================
+   NOME DO JOGADOR
+   ===================================================== */
+.name-row { display:flex; align-items:center; gap:10px; margin:10px 0 4px; flex-wrap:wrap; }
+.name-row label { font-family:'Cinzel',serif; font-weight:700; font-size:13px; white-space:nowrap; color:#d4af37; }
+.name-row input {
+  flex:1; min-width:140px; border:2px solid #d4af37; border-radius:3px;
+  padding:7px 12px; font-size:14px; font-family:'Lora',serif;
+  background:#071440;
+  box-shadow:2px 2px 0 #d4af37, inset 0 1px 3px rgba(91,58,30,0.08);
+  outline:none; color:#d4af37;
+  transition: box-shadow 0.15s;
+}
+.name-row input:focus {
+  box-shadow: 2px 2px 0 #d4af37, 0 0 0 3px rgba(212,175,55,0.25), inset 0 1px 3px rgba(91,58,30,0.08);
+}
+
+/* =====================================================
+   TOUCH CONTROLS — maiores, mais bonitos, com label
+   ===================================================== */
+#touchControls {
+  display:none; position:fixed;
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  left:0; right:0;
+  z-index:900; pointer-events:none;
+  padding: 0 calc(20px + env(safe-area-inset-right, 0px)) 0 calc(20px + env(safe-area-inset-left, 0px));
+  justify-content:space-between; align-items:flex-end;
+}
+@media (hover:none) and (pointer:coarse) {
+  #touchControls { display:flex; }
+}
+/* Fallback: qualquer ecrã até 768px — sempre visível */
+@media (max-width: 768px) {
+  #touchControls { display:flex; }
+}
+.tc-left  { display:flex; gap:14px; pointer-events:none; align-items:flex-end; }
+.tc-right { pointer-events:none; }
+
+/* Wrapper para botão + label */
+.tc-btn-wrap {
+  display: flex; flex-direction: column; align-items: center; gap: 5px;
+  pointer-events: none;
+}
+.tc-btn-wrap .touch-btn { pointer-events: all; }
+.tc-label {
+  font-family: 'Cinzel', serif; font-size: 9px; font-weight: 700;
+  color: rgba(212,175,55,0.7); letter-spacing: 1px; text-transform: uppercase;
+  user-select: none; text-shadow: 0 1px 3px rgba(0,0,0,0.7); pointer-events: none;
+}
+
+.touch-btn {
+  pointer-events:all;
+  width:72px; height:72px; border-radius:50%;
+  border:2.5px solid rgba(212,175,55,0.65);
+  background:
+    radial-gradient(circle at 38% 32%, rgba(255,230,150,0.22), transparent 58%),
+    rgba(3,16,58,0.82);
+  color:#d4af37;
+  font-size:28px; font-weight:900;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:
+    0 6px 20px rgba(0,0,0,0.55),
+    0 2px 6px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255,220,130,0.22),
+    inset 0 -2px 5px rgba(0,0,0,0.35);
+  user-select:none; -webkit-tap-highlight-color:transparent; cursor:pointer;
+  transition: background 0.1s, transform 0.08s, box-shadow 0.08s;
+  touch-action:manipulation;
+  backdrop-filter: blur(3px);
+}
+
+.touch-btn.pressed {
+  background:
+    radial-gradient(circle at 38% 32%, rgba(255,200,80,0.38), transparent 55%),
+    rgba(26,48,180,0.42);
+  transform: scale(0.88);
+  border-color: rgba(212,175,55,0.95);
+  box-shadow:
+    0 2px 8px rgba(0,0,0,0.4),
+    inset 0 2px 4px rgba(0,0,0,0.25);
+}
+
+.touch-jump {
+  width:82px; height:82px; font-size:30px;
+  background:
+    radial-gradient(circle at 38% 32%, rgba(255,220,120,0.32), transparent 55%),
+    rgba(26,48,180,0.25);
+  border-color: rgba(212,175,55,0.82);
+  border-width: 3px;
+  box-shadow:
+    0 6px 24px rgba(0,0,0,0.5),
+    0 0 16px rgba(212,175,55,0.22),
+    inset 0 1px 0 rgba(255,220,130,0.35),
+    inset 0 -2px 5px rgba(0,0,0,0.28);
+}
+.touch-jump.pressed {
+  background:
+    radial-gradient(circle at 38% 32%, rgba(255,220,80,0.48), transparent 55%),
+    rgba(212,175,55,0.52);
+}
