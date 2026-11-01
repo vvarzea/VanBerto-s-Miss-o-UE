@@ -87,6 +87,7 @@ export const QUIZ_BY_THEME = {
     { q:"Em que oceano ficam os Açores?", a:[{t:"Oceano Atlântico",ok:true},{t:"Oceano Índico",ok:false},{t:"Oceano Pacífico",ok:false}], exp:"Os Açores são nove ilhas no meio do Atlântico Norte." },
     { q:"Em que ano Portugal entrou na então CEE, hoje União Europeia?", a:[{t:"1986",ok:true},{t:"1957",ok:false},{t:"2002",ok:false}], exp:"Portugal e Espanha aderiram em 1 de janeiro de 1986." },
     { q:"Que moeda se usa em Portugal?", a:[{t:"O euro",ok:true},{t:"O escudo",ok:false},{t:"A libra",ok:false}], exp:"O euro substituiu o escudo em 2002." },
+    { q:"Em que parte da Europa se localiza Portugal continental?", a:[{t:"Sudoeste",ok:true},{t:"Noroeste",ok:false},{t:"Nordeste",ok:false}], exp:"Portugal continental fica no extremo sudoeste da Europa, na Península Ibérica." },
   ],
   paises_capitais: [
     { q:"Qual é a capital da França?", a:[{t:"Paris",ok:true},{t:"Lyon",ok:false},{t:"Marselha",ok:false}], exp:"Paris é a capital da França e fica no rio Sena." },
@@ -95,6 +96,7 @@ export const QUIZ_BY_THEME = {
     { q:"Qual é a capital da Alemanha?", a:[{t:"Berlim",ok:true},{t:"Munique",ok:false},{t:"Hamburgo",ok:false}], exp:"Berlim é a capital e a maior cidade da Alemanha." },
     { q:"Qual é a capital da Grécia?", a:[{t:"Atenas",ok:true},{t:"Salónica",ok:false},{t:"Esparta",ok:false}], exp:"Atenas é a capital da Grécia e é uma das cidades mais antigas da Europa." },
     { q:"Quantos países fazem parte da União Europeia?", a:[{t:"27",ok:true},{t:"12",ok:false},{t:"50",ok:false}], exp:"A UE tem 27 países desde a saída do Reino Unido, em 2020." },
+    { q:"Qual é a capital da Bélgica?", a:[{t:"Bruxelas",ok:true},{t:"Amesterdão",ok:false},{t:"Luxemburgo",ok:false}], exp:"Bruxelas é a capital da Bélgica e acolhe várias instituições da União Europeia." },
   ],
   bandeira_ue: [
     { q:"Que cor tem o fundo da bandeira da UE?", a:[{t:"Azul",ok:true},{t:"Vermelho",ok:false},{t:"Verde",ok:false}], exp:"O fundo da bandeira europeia é azul, como o céu." },
@@ -119,6 +121,7 @@ export const QUIZ_BY_THEME = {
     { q:"Como se diz «bom dia» em espanhol?", a:[{t:"Buenos días",ok:true},{t:"Guten Tag",ok:false},{t:"Buongiorno",ok:false}], exp:"«Buenos días» é o bom dia espanhol." },
     { q:"Como se diz «olá» em italiano?", a:[{t:"Ciao",ok:true},{t:"Hallo",ok:false},{t:"Hej",ok:false}], exp:"«Ciao» serve para dizer olá e adeus em italiano." },
     { q:"Quantas línguas oficiais tem a UE?", a:[{t:"24",ok:true},{t:"3",ok:false},{t:"100",ok:false}], exp:"A UE tem 24 línguas oficiais." },
+    { q:"Qual destas línguas é oficial da União Europeia?", a:[{t:"Português",ok:true},{t:"Islandês",ok:false},{t:"Russo",ok:false}], exp:"O português é uma das 24 línguas oficiais da União Europeia." },
   ],
   monumentos: [
     { q:"Em que cidade fica a Torre Eiffel?", a:[{t:"Paris",ok:true},{t:"Roma",ok:false},{t:"Madrid",ok:false}], exp:"A Torre Eiffel é o símbolo de Paris." },
@@ -143,6 +146,7 @@ export const QUIZ_BY_THEME = {
     { q:"Todos temos direito a ser tratados com…", a:[{t:"Respeito e dignidade",ok:true},{t:"Indiferença e desprezo",ok:false},{t:"Medo e desconfiança",ok:false}], exp:"Todas as pessoas têm dignidade." },
     { q:"O que é a discriminação?", a:[{t:"Tratar alguém pior por causa de quem é",ok:true},{t:"Dar uma ajuda extra a quem precisa",ok:false},{t:"Escolher quem joga na equipa por sorteio",ok:false}], exp:"A discriminação é injusta e está proibida na UE." },
     { q:"O que ganhamos ao conhecer outras culturas?", a:[{t:"Aprendemos e fazemos novos amigos",ok:true},{t:"Perdemos a nossa própria identidade",ok:false},{t:"Ficamos todos exatamente iguais",ok:false}], exp:"Conhecer outras culturas alarga os nossos horizontes." },
+    { q:"Qual é uma atitude de respeito numa conversa?", a:[{t:"Ouvir sem interromper",ok:true},{t:"Rir de quem pensa diferente",ok:false},{t:"Impor sempre a própria opinião",ok:false}], exp:"Ouvir os outros é uma forma importante de respeito." },
   ],
   dia_europa_schuman: [
     { q:"Em que dia se celebra o Dia da Europa?", a:[{t:"9 de maio",ok:true},{t:"1 de junho",ok:false},{t:"31 de outubro",ok:false}], exp:"O Dia da Europa é a 9 de maio." },
@@ -159,6 +163,8 @@ export const QUIZ_BY_THEME = {
     { q:"As duas guerras mundiais mostraram que…", a:[{t:"O diálogo é melhor do que a guerra",ok:true},{t:"A guerra é a melhor solução",ok:false},{t:"Os países devem viver isolados",ok:false}], exp:"Depois das guerras, a Europa escolheu o diálogo." },
     { q:"Se dois amigos discutem por um jogo, o que ajuda a manter a paz?", a:[{t:"Conversar e chegar a um acordo",ok:true},{t:"Gritar mais alto que o outro",ok:false},{t:"Deixar de falar para sempre",ok:false}], exp:"Conversar é a base da paz, entre amigos e entre países." },
     { q:"Quando países colaboram, o que acontece muitas vezes?", a:[{t:"Resolvem melhor problemas comuns, como o ambiente",ok:true},{t:"Deixam de ter qualquer língua própria",ok:false},{t:"Passam a ter todos exatamente a mesma cultura",ok:false}], exp:"Juntos, os países têm mais força para resolver problemas comuns." },
+    { q:"O que ajuda a manter a paz entre países?", a:[{t:"Diálogo e cooperação",ok:true},{t:"Ameaças constantes",ok:false},{t:"Cortar toda a comunicação",ok:false}], exp:"O diálogo e a cooperação ajudam a resolver conflitos de forma pacífica." },
+    { q:"Quando um país sofre uma catástrofe, o que podem fazer outros países?", a:[{t:"Enviar ajuda e equipas de emergência",ok:true},{t:"Impedir a chegada de ajuda",ok:false},{t:"Ignorar todos os pedidos",ok:false}], exp:"A solidariedade pode incluir ajuda humanitária, equipas especializadas e recursos." },
   ],
   historia_ue: [
     { q:"Em que ano foi assinado o Tratado de Roma?", a:[{t:"1957",ok:true},{t:"1999",ok:false},{t:"2020",ok:false}], exp:"O Tratado de Roma criou a CEE em 1957." },
@@ -175,6 +181,7 @@ export const QUIZ_BY_THEME = {
     { q:"A dignidade humana quer dizer que…", a:[{t:"Todas as pessoas merecem respeito",ok:true},{t:"Só os adultos merecem respeito",ok:false},{t:"O respeito depende da riqueza",ok:false}], exp:"Toda a pessoa tem valor, sem exceções." },
     { q:"O que é o Estado de direito?", a:[{t:"Todos, até os governantes, cumprem as leis",ok:true},{t:"Só os cidadãos comuns cumprem as leis",ok:false},{t:"Cada pessoa decide que leis cumpre",ok:false}], exp:"As leis aplicam-se a todos por igual." },
     { q:"Qual destas ideias NÃO é um valor da UE?", a:[{t:"A censura",ok:true},{t:"A democracia",ok:false},{t:"O respeito pelos direitos humanos",ok:false}], exp:"A UE defende a liberdade de expressão, não a censura." },
+    { q:"Qual destes é um valor fundamental da União Europeia?", a:[{t:"Dignidade humana",ok:true},{t:"Intolerância",ok:false},{t:"Censura",ok:false}], exp:"A dignidade humana é um dos valores fundamentais da União Europeia." },
   ],
   direitos_cidadaos: [
     { q:"Qual é um direito dos cidadãos da UE?", a:[{t:"Estudar e trabalhar noutro país da UE",ok:true},{t:"Escolher as leis de qualquer país",ok:false},{t:"Ter sempre a nota máxima nos testes",ok:false}], exp:"Os cidadãos da UE podem escolher onde viver na União." },
@@ -183,6 +190,8 @@ export const QUIZ_BY_THEME = {
     { q:"O que significa «livre circulação»?", a:[{t:"Viajar e viver noutros países da UE",ok:true},{t:"Conduzir sem respeitar as regras",ok:false},{t:"Entrar nos museus sem pagar",ok:false}], exp:"É um dos direitos mais conhecidos da UE." },
     { q:"Se ficares doente noutro país da UE, podes usar…", a:[{t:"O Cartão Europeu de Seguro de Doença",ok:true},{t:"O cartão de uma biblioteca europeia",ok:false},{t:"O cartão de estudante de outro país",ok:false}], exp:"O cartão dá acesso a cuidados de saúde públicos durante uma estadia temporária." },
     { q:"A moeda única permite…", a:[{t:"Usar a mesma moeda em vários países",ok:true},{t:"Que todos tenham o mesmo ordenado",ok:false},{t:"Que os preços sejam iguais em todo o lado",ok:false}], exp:"O euro facilita viagens e compras." },
+    { q:"Qual destes é um direito de quem vive numa democracia?", a:[{t:"Expressar opiniões dentro dos limites da lei",ok:true},{t:"Ser obrigado a concordar com todos",ok:false},{t:"Não poder apresentar reclamações",ok:false}], exp:"A liberdade de expressão é um direito fundamental, com limites previstos na lei." },
+    { q:"Se um produto comprado tiver defeito, a quem deves apresentar a reclamação inicialmente?", a:[{t:"Ao vendedor",ok:true},{t:"Ao Parlamento Europeu",ok:false},{t:"Ao Tribunal de Justiça da UE",ok:false}], exp:"Em regra, deves contactar primeiro o vendedor; na UE, a garantia legal dos bens é de, pelo menos, dois anos." },
   ],
   instituicoes: [
     { q:"Onde fica a sede da Comissão Europeia?", a:[{t:"Bruxelas",ok:true},{t:"Lisboa",ok:false},{t:"Roma",ok:false}], exp:"A Comissão tem a sede em Bruxelas, na Bélgica." },
@@ -199,6 +208,7 @@ export const QUIZ_BY_THEME = {
     { q:"O que significam os 3 R?", a:[{t:"Reduzir, reutilizar e reciclar",ok:true},{t:"Recolher, regar e replantar",ok:false},{t:"Rir, ler e rezar todos os dias",ok:false}], exp:"Os 3 R ajudam a produzir menos lixo." },
     { q:"Qual destas energias é renovável?", a:[{t:"A solar",ok:true},{t:"O carvão",ok:false},{t:"O petróleo",ok:false}], exp:"A energia solar nunca se esgota." },
     { q:"Porque devemos plantar árvores?", a:[{t:"Absorvem CO₂ e dão abrigo a animais",ok:true},{t:"Fazem barulho quando há vento",ok:false},{t:"Gastam muita água sem utilidade",ok:false}], exp:"As árvores ajudam o clima e a biodiversidade." },
+    { q:"Qual destas ações ajuda a reduzir o lixo?", a:[{t:"Reutilizar sacos e recipientes",ok:true},{t:"Usar sempre produtos descartáveis",ok:false},{t:"Deitar resíduos no chão",ok:false}], exp:"Reutilizar objetos reduz a produção de resíduos." },
   ],
   energia_clima: [
     { q:"Qual destas energias vem do vento?", a:[{t:"A eólica",ok:true},{t:"A solar",ok:false},{t:"A hidráulica",ok:false}], exp:"Os aerogeradores transformam o vento em eletricidade." },
@@ -215,6 +225,8 @@ export const QUIZ_BY_THEME = {
     { q:"O que é a inteligência artificial?", a:[{t:"Programas que aprendem a fazer tarefas",ok:true},{t:"Máquinas que têm sentimentos humanos",ok:false},{t:"Um livro de ciência sobre o futuro",ok:false}], exp:"A IA ajuda, mas precisa de uso responsável." },
     { q:"Marie Curie, que viveu em França, ficou famosa por…", a:[{t:"Descobertas sobre a radioatividade",ok:true},{t:"Pintar quadros famosos de Paris",ok:false},{t:"Construir as primeiras pontes de ferro",ok:false}], exp:"Ganhou dois Prémios Nobel." },
     { q:"O que é um robô?", a:[{t:"Uma máquina que se programa",ok:true},{t:"Um animal de laboratório",ok:false},{t:"Uma planta muito rara",ok:false}], exp:"Os robôs fazem tarefas para as quais foram programados." },
+    { q:"Que instrumento permite observar objetos muito distantes no espaço?", a:[{t:"Telescópio",ok:true},{t:"Microscópio",ok:false},{t:"Termómetro",ok:false}], exp:"O telescópio permite observar objetos celestes distantes." },
+    { q:"Que instrumento é usado para observar seres muito pequenos?", a:[{t:"Microscópio",ok:true},{t:"Binóculos",ok:false},{t:"Bússola",ok:false}], exp:"O microscópio amplia objetos demasiado pequenos para serem vistos a olho nu." },
   ],
   mobilidade_erasmus: [
     { q:"O que é o programa Erasmus+?", a:[{t:"Estudar ou fazer voluntariado noutro país",ok:true},{t:"Um jogo de computador sobre viagens pela Europa",ok:false},{t:"Uma moeda usada só por estudantes universitários",ok:false}], exp:"O Erasmus+ apoia a aprendizagem e a mobilidade." },
@@ -231,6 +243,7 @@ export const QUIZ_BY_THEME = {
     { q:"O que é a desinformação?", a:[{t:"Informação falsa espalhada de propósito",ok:true},{t:"Uma aula nova da disciplina de TIC",ok:false},{t:"Um tipo de jogo online de perguntas",ok:false}], exp:"A desinformação engana as pessoas." },
     { q:"Qual é uma boa regra para proteger os teus dados online?", a:[{t:"Não partilhar a palavra-passe com ninguém",ok:true},{t:"Dar a morada a quem pedir online",ok:false},{t:"Usar a mesma palavra-passe em todo o lado",ok:false}], exp:"Os dados pessoais são só teus." },
     { q:"A cidadania digital é…", a:[{t:"Usar a internet com respeito e segurança",ok:true},{t:"Ter muitos seguidores nas redes sociais",ok:false},{t:"Passar o dia inteiro ligado online",ok:false}], exp:"Ser cidadão digital é cuidar de nós e dos outros online." },
+    { q:"Antes de publicar uma fotografia de outra pessoa, o que é importante fazer?", a:[{t:"Pedir autorização",ok:true},{t:"Publicar sem pensar",ok:false},{t:"Enviar para desconhecidos",ok:false}], exp:"É importante respeitar a privacidade e pedir autorização antes de partilhar imagens de outras pessoas." },
   ],
 };
 
@@ -241,6 +254,7 @@ export const QUIZ_BY_THEME_AVANCADO = {
     { q:"O Estreito de Gibraltar separa a Europa de que continente?", a:[{t:"África",ok:true},{t:"Ásia",ok:false},{t:"América",ok:false},{t:"Oceânia",ok:false}], exp:"No ponto mais estreito, tem cerca de 14 km e separa a Espanha de Marrocos." },
     { q:"Qual é o ponto mais ocidental da Europa continental?", a:[{t:"Cabo da Roca",ok:true},{t:"Cabo Norte",ok:false},{t:"Cabo de São Vicente",ok:false},{t:"Cabo Finisterra",ok:false}], exp:"O Cabo da Roca, em Portugal, é o ponto mais a oeste da Europa continental." },
     { q:"Porque se diz que Portugal tem uma posição estratégica na Europa?", a:[{t:"Tem costa atlântica aberta às rotas marítimas",ok:true},{t:"Fica no centro geográfico da Europa",ok:false},{t:"Não tem fronteiras terrestres com nenhum país",ok:false},{t:"Fica junto ao Mar Báltico, no norte",ok:false}], exp:"A costa atlântica ligou Portugal a África, às Américas e à Ásia desde os Descobrimentos." },
+    { q:"Qual é o maior país situado inteiramente na Europa?", a:[{t:"Ucrânia",ok:true},{t:"Alemanha",ok:false},{t:"França",ok:false},{t:"Itália",ok:false}], exp:"A Ucrânia é o maior país inteiramente situado na Europa; a Rússia é maior, mas estende-se por dois continentes." },
   ],
   portugal_europa: [
     { q:"Em que ano o euro substituiu o escudo nas notas e moedas de Portugal?", a:[{t:"2002",ok:true},{t:"1986",ok:false},{t:"1999",ok:false},{t:"2010",ok:false}], exp:"As notas e moedas de euro começaram a circular a 1 de janeiro de 2002." },
@@ -248,6 +262,8 @@ export const QUIZ_BY_THEME_AVANCADO = {
     { q:"Como se chamam as regiões da UE muito afastadas do continente europeu, como os Açores e a Madeira?", a:[{t:"Regiões ultraperiféricas",ok:true},{t:"Regiões fronteiriças",ok:false},{t:"Regiões continentais",ok:false},{t:"Regiões neutras",ok:false}], exp:"As regiões ultraperiféricas têm apoios especiais da UE por estarem longe e serem insulares." },
     { q:"Qual destes rios nasce em Espanha e desagua em Lisboa?", a:[{t:"Tejo",ok:true},{t:"Douro",ok:false},{t:"Mondego",ok:false},{t:"Guadiana",ok:false}], exp:"O Tejo é o maior rio da Península Ibérica e desagua no Atlântico, junto a Lisboa." },
     { q:"Em que ano foi assinado o tratado de adesão de Portugal à CEE, nos Jerónimos?", a:[{t:"1985",ok:true},{t:"1975",ok:false},{t:"1995",ok:false},{t:"2005",ok:false}], exp:"O tratado foi assinado a 12 de junho de 1985 e Portugal aderiu em 1986." },
+    { q:"Qual destas ilhas pertence ao arquipélago dos Açores?", a:[{t:"Santa Maria",ok:true},{t:"Porto Santo",ok:false},{t:"Cabrera",ok:false},{t:"Menorca",ok:false}], exp:"Santa Maria é uma das nove ilhas dos Açores." },
+    { q:"Qual destas opções identifica corretamente os grupos do arquipélago dos Açores?", a:[{t:"Ocidental, Central e Oriental",ok:true},{t:"Norte, Sul e Centro",ok:false},{t:"Interior, Exterior e Central",ok:false},{t:"Nascente, Poente e Sul",ok:false}], exp:"As nove ilhas dos Açores distribuem-se pelos grupos Ocidental, Central e Oriental." },
   ],
   paises_capitais: [
     { q:"Qual é a capital da Polónia?", a:[{t:"Varsóvia",ok:true},{t:"Cracóvia",ok:false},{t:"Gdansk",ok:false},{t:"Praga",ok:false}], exp:"Varsóvia é a capital da Polónia, aderiu à UE em 2004." },
@@ -255,6 +271,9 @@ export const QUIZ_BY_THEME_AVANCADO = {
     { q:"Qual é a capital da Áustria?", a:[{t:"Viena",ok:true},{t:"Salzburgo",ok:false},{t:"Berna",ok:false},{t:"Budapeste",ok:false}], exp:"Viena é a capital da Áustria e fica no rio Danúbio." },
     { q:"Qual destes países NÃO pertence à União Europeia?", a:[{t:"Noruega",ok:true},{t:"Suécia",ok:false},{t:"Grécia",ok:false},{t:"Irlanda",ok:false}], exp:"A Noruega fica na Europa, mas não é membro da UE." },
     { q:"Qual é a capital da Irlanda?", a:[{t:"Dublin",ok:true},{t:"Belfast",ok:false},{t:"Cork",ok:false},{t:"Edimburgo",ok:false}], exp:"Dublin é a capital da República da Irlanda, país da UE." },
+    { q:"Qual é a capital da Estónia?", a:[{t:"Tallinn",ok:true},{t:"Riga",ok:false},{t:"Vilnius",ok:false},{t:"Helsínquia",ok:false}], exp:"Tallinn é a capital da Estónia." },
+    { q:"Que país tem Sófia como capital?", a:[{t:"Bulgária",ok:true},{t:"Roménia",ok:false},{t:"Albânia",ok:false},{t:"Moldávia",ok:false}], exp:"Sófia é a capital da Bulgária." },
+    { q:"Qual destas associações país–capital está correta?", a:[{t:"Eslováquia–Bratislava",ok:true},{t:"Letónia–Vilnius",ok:false},{t:"Lituânia–Riga",ok:false},{t:"Croácia–Sarajevo",ok:false}], exp:"Bratislava é a capital da Eslováquia; Riga é da Letónia, Vilnius da Lituânia e Zagreb da Croácia." },
   ],
   bandeira_ue: [
     { q:"Que organização criou a bandeira de 12 estrelas, em 1955?", a:[{t:"O Conselho da Europa",ok:true},{t:"A NATO",ok:false},{t:"A ONU",ok:false},{t:"O Parlamento Europeu",ok:false}], exp:"O Conselho da Europa adotou-a em 1955; a UE passou a usá-la oficialmente em 1985." },
@@ -262,6 +281,7 @@ export const QUIZ_BY_THEME_AVANCADO = {
     { q:"Segundo a descrição oficial, o azul do fundo representa…", a:[{t:"O céu do Ocidente",ok:true},{t:"O Mar Mediterrâneo",ok:false},{t:"A água dos rios",ok:false},{t:"A paz mundial",ok:false}], exp:"A descrição oficial fala em estrelas douradas sobre o fundo azul do céu do Ocidente." },
     { q:"Qual destas organizações usa a mesma bandeira de 12 estrelas, apesar de não ser a UE?", a:[{t:"O Conselho da Europa",ok:true},{t:"A NATO, aliança militar",ok:false},{t:"A ONU, em Nova Iorque",ok:false},{t:"A FIFA, do futebol",ok:false}], exp:"O Conselho da Europa, com sede em Estrasburgo, é uma organização diferente da UE." },
     { q:"Em que anos a bandeira foi adotada, primeiro pelo Conselho da Europa e depois pelas Comunidades Europeias?", a:[{t:"1955 e 1985",ok:true},{t:"1945 e 1957",ok:false},{t:"1992 e 2002",ok:false},{t:"1985 e 2004",ok:false}], exp:"Foi adotada em 1955 pelo Conselho da Europa e em 1985 pelas Comunidades Europeias." },
+    { q:"As estrelas da bandeira europeia têm quantas pontas?", a:[{t:"Cinco",ok:true},{t:"Quatro",ok:false},{t:"Seis",ok:false},{t:"Oito",ok:false}], exp:"Cada estrela tem cinco pontas." },
   ],
   simbolos_ue: [
     { q:"Quem compôs a melodia do hino europeu?", a:[{t:"Ludwig van Beethoven",ok:true},{t:"Wolfgang Amadeus Mozart",ok:false},{t:"Johann Sebastian Bach",ok:false},{t:"Giuseppe Verdi, de Itália",ok:false}], exp:"A melodia vem do último andamento da 9.ª Sinfonia de Beethoven." },
@@ -269,6 +289,7 @@ export const QUIZ_BY_THEME_AVANCADO = {
     { q:"O lema «Unida na diversidade» significa que…", a:[{t:"Os países cooperam e respeitam as diferenças",ok:true},{t:"Todos os países têm de ser iguais em tudo",ok:false},{t:"Só existe uma língua oficial na Europa",ok:false},{t:"Cada país decide tudo sozinho",ok:false}], exp:"A diversidade de línguas e culturas é vista como uma riqueza." },
     { q:"Quando começaram a circular as notas e moedas de euro?", a:[{t:"1 de janeiro de 2002",ok:true},{t:"1 de janeiro de 1999",ok:false},{t:"1 de maio de 2004",ok:false},{t:"1 de janeiro de 2010",ok:false}], exp:"Em 1999 o euro existiu só em pagamentos eletrónicos; as notas e moedas chegaram em 2002." },
     { q:"Quantos países usam o euro em 2026?", a:[{t:"21",ok:true},{t:"27",ok:false},{t:"12",ok:false},{t:"19",ok:false}], exp:"A Bulgária tornou-se o 21.º país do euro em 1 de janeiro de 2026." },
+    { q:"Qual destas afirmações sobre os símbolos da União Europeia é verdadeira?", a:[{t:"O lema destaca a união que respeita a diversidade",ok:true},{t:"A bandeira representa o número atual de países",ok:false},{t:"O hino tem uma letra oficial em todas as línguas",ok:false},{t:"O Dia da Europa celebra a assinatura do Tratado de Maastricht",ok:false}], exp:"O lema exprime a ideia de união entre povos e países que mantêm as suas diferenças." },
   ],
   linguas: [
     { q:"Qual destas línguas é falada na Alemanha e na Áustria?", a:[{t:"Alemão",ok:true},{t:"Neerlandês",ok:false},{t:"Sueco",ok:false},{t:"Polaco",ok:false}], exp:"O alemão é falado na Alemanha e na Áustria." },
@@ -276,6 +297,8 @@ export const QUIZ_BY_THEME_AVANCADO = {
     { q:"A que família pertence o português?", a:[{t:"Línguas românicas, que vêm do latim",ok:true},{t:"Línguas germânicas, como o alemão",ok:false},{t:"Línguas eslavas, como o polaco",ok:false},{t:"Línguas urálicas, como o húngaro",ok:false}], exp:"O português, o espanhol, o francês, o italiano e o romeno vêm do latim." },
     { q:"Porque tem a UE tantas línguas oficiais?", a:[{t:"Para que cada cidadão fale com a UE na sua língua",ok:true},{t:"Porque ninguém consegue aprender outra língua",ok:false},{t:"Porque o latim já não se pode usar",ok:false},{t:"Porque cada língua tem um país na ONU",ok:false}], exp:"A UE respeita a diversidade linguística e as pessoas podem dirigir-se a ela na sua língua." },
     { q:"O Dia Europeu das Línguas, a 26 de setembro, serve para…", a:[{t:"Celebrar a diversidade linguística da Europa",ok:true},{t:"Fazer exames de línguas a todos os alunos",ok:false},{t:"Comemorar o Dia da Europa nas escolas",ok:false},{t:"Falar apenas inglês durante o dia todo",ok:false}], exp:"Promove a aprendizagem de línguas e o respeito por todas elas." },
+    { q:"Qual destas línguas pertence ao grupo das línguas fino-úgricas?", a:[{t:"Finlandês",ok:true},{t:"Italiano",ok:false},{t:"Grego",ok:false},{t:"Espanhol",ok:false}], exp:"O finlandês pertence à família urálica, no ramo fino-úgrico." },
+    { q:"Porque é que as instituições europeias traduzem documentos para as línguas oficiais?", a:[{t:"Para que os cidadãos acompanhem a vida da UE",ok:true},{t:"Para que todos os países adotem uma só língua",ok:false},{t:"Para substituir as línguas regionais de cada país",ok:false},{t:"Apenas para facilitar o turismo na Europa",ok:false}], exp:"O multilinguismo ajuda a garantir acesso à informação e participação democrática em toda a União." },
   ],
   monumentos: [
     { q:"Qual destes monumentos fica em Berlim?", a:[{t:"O Portão de Brandemburgo",ok:true},{t:"A Torre Eiffel, de Paris",ok:false},{t:"O Coliseu, de Roma",ok:false},{t:"A Acrópole, de Atenas",ok:false}], exp:"O Portão de Brandemburgo é um símbolo de Berlim e da união alemã." },
@@ -283,6 +306,7 @@ export const QUIZ_BY_THEME_AVANCADO = {
     { q:"Que monumento romano, usado para espetáculos, fica em Itália?", a:[{t:"O Coliseu",ok:true},{t:"O Pártenon",ok:false},{t:"A Alhambra",ok:false},{t:"A Torre de Pisa",ok:false}], exp:"O Coliseu recebia combates e espetáculos para milhares de pessoas." },
     { q:"A Alhambra, um palácio-fortaleza, fica em que país?", a:[{t:"Espanha",ok:true},{t:"Portugal",ok:false},{t:"Marrocos",ok:false},{t:"Itália",ok:false}], exp:"A Alhambra fica em Granada, na Andaluzia." },
     { q:"Porque é importante proteger o património?", a:[{t:"Porque guarda a nossa história para o futuro",ok:true},{t:"Porque dá sempre muito dinheiro a quem o visita",ok:false},{t:"Porque só os turistas gostam de o ver",ok:false},{t:"Porque nunca se estraga com o tempo",ok:false}], exp:"O património une as pessoas através da memória e da cultura." },
+    { q:"Stonehenge, monumento pré-histórico famoso, fica em que país?", a:[{t:"Reino Unido",ok:true},{t:"Irlanda",ok:false},{t:"Dinamarca",ok:false},{t:"Alemanha",ok:false}], exp:"Stonehenge fica em Inglaterra, no Reino Unido." },
   ],
   gastronomia_musica: [
     { q:"Desde que ano o fado é Património Imaterial da Humanidade da UNESCO?", a:[{t:"2011",ok:true},{t:"1986",ok:false},{t:"2002",ok:false},{t:"2020",ok:false}], exp:"O fado foi reconhecido pela UNESCO em 2011." },
@@ -290,6 +314,8 @@ export const QUIZ_BY_THEME_AVANCADO = {
     { q:"A Oktoberfest é uma festa popular em que país?", a:[{t:"Alemanha",ok:true},{t:"Bélgica",ok:false},{t:"Irlanda",ok:false},{t:"Suécia",ok:false}], exp:"A Oktoberfest realiza-se todos os anos em Munique, na Alemanha." },
     { q:"O que é uma tradição?", a:[{t:"Um costume passado de geração em geração",ok:true},{t:"Uma moda passageira que dura um dia",ok:false},{t:"Uma regra criada pelo Parlamento Europeu",ok:false},{t:"Um prato novo inventado esta semana",ok:false}], exp:"As tradições ligam o passado ao presente." },
     { q:"O flamenco é uma música e dança tradicional de que país?", a:[{t:"Espanha",ok:true},{t:"Itália",ok:false},{t:"Portugal",ok:false},{t:"Grécia",ok:false}], exp:"O flamenco nasceu na Andaluzia, em Espanha." },
+    { q:"A tradição musical do flamenco está especialmente associada a que região de Espanha?", a:[{t:"Andaluzia",ok:true},{t:"Galiza",ok:false},{t:"Catalunha",ok:false},{t:"Astúrias",ok:false}], exp:"O flamenco desenvolveu-se especialmente na Andaluzia." },
+    { q:"Em que país nasceu a tradição dos mercados de Natal conhecidos como Weihnachtsmärkte?", a:[{t:"Alemanha",ok:true},{t:"Portugal",ok:false},{t:"Grécia",ok:false},{t:"Irlanda",ok:false}], exp:"Os mercados de Natal têm uma longa tradição em regiões de língua alemã, especialmente na Alemanha." },
   ],
   diversidade_respeito: [
     { q:"Qual atitude mostra respeito pela diversidade cultural?", a:[{t:"Aprender com costumes diferentes dos meus",ok:true},{t:"Achar que a minha cultura é a melhor",ok:false},{t:"Evitar quem tem outra religião ou língua",ok:false},{t:"Imitar o sotaque de um colega para rir",ok:false}], exp:"Respeito é curiosidade e abertura." },
@@ -297,6 +323,8 @@ export const QUIZ_BY_THEME_AVANCADO = {
     { q:"A Carta dos Direitos Fundamentais da UE proíbe a discriminação por…", a:[{t:"Sexo, cor, origem, religião ou idade, entre outras",ok:true},{t:"Apenas por motivos ligados à nacionalidade da pessoa",ok:false},{t:"Apenas pela cor dos olhos e do cabelo",ok:false},{t:"Apenas pela altura e pelo peso da pessoa",ok:false}], exp:"A Carta protege todas as pessoas de tratamento injusto." },
     { q:"Um estereótipo é…", a:[{t:"Uma ideia simplificada e injusta sobre um grupo",ok:true},{t:"Um estilo de música tradicional da Europa",ok:false},{t:"Uma lei europeia sobre diversidade cultural",ok:false},{t:"Uma festa tradicional do solstício de verão",ok:false}], exp:"Os estereótipos esquecem que cada pessoa é única." },
     { q:"Se vires alguém a ser excluído por ser diferente, o melhor é…", a:[{t:"Incluí-lo e, se preciso, chamar um adulto",ok:true},{t:"Fingir que não vi nada e seguir caminho",ok:false},{t:"Juntar-me ao grupo que o exclui",ok:false},{t:"Rir-me da situação com os colegas",ok:false}], exp:"Ajudar e pedir apoio é sempre a melhor resposta." },
+    { q:"Numa atividade, um colega tem uma necessidade de acessibilidade. O que é mais adequado?", a:[{t:"Adaptar a atividade para o incluir",ok:true},{t:"Pedir-lhe que assista sem participar",ok:false},{t:"Ignorar o pedido e seguir o plano",ok:false},{t:"Decidir sem lhe perguntar o que precisa",ok:false}], exp:"A acessibilidade e a participação devem ser consideradas, ouvindo a pessoa envolvida." },
+    { q:"Uma publicação online ridiculariza um grupo por causa da sua origem. Qual é a resposta mais responsável?", a:[{t:"Não partilhar, denunciar e apoiar quem foi visado",ok:true},{t:"Partilhar para aumentar as visualizações",ok:false},{t:"Responder com insultos ao outro grupo",ok:false},{t:"Guardar a publicação e enviá-la à turma",ok:false}], exp:"Não amplificar o discurso discriminatório, usar mecanismos de denúncia e apoiar a pessoa visada são respostas mais seguras." },
   ],
   dia_europa_schuman: [
     { q:"Em que ano foi apresentada a Declaração Schuman?", a:[{t:"1950",ok:true},{t:"1945",ok:false},{t:"1957",ok:false},{t:"1992",ok:false}], exp:"A declaração foi feita a 9 de maio de 1950." },
@@ -304,6 +332,7 @@ export const QUIZ_BY_THEME_AVANCADO = {
     { q:"Porque se escolheram o carvão e o aço?", a:[{t:"Eram essenciais para as armas, e juntos evitavam a guerra",ok:true},{t:"Porque eram os produtos mais baratos e mais fáceis de vender",ok:false},{t:"Porque eram os únicos materiais que a Europa exportava",ok:false},{t:"Porque eram os materiais mais usados na construção de casas",ok:false}], exp:"Quem partilha os recursos para a guerra, perde a vontade de a fazer." },
     { q:"Qual foi a primeira comunidade criada com base na Declaração Schuman?", a:[{t:"A CECA, do Carvão e do Aço",ok:true},{t:"O Euratom, da energia atómica",ok:false},{t:"O espaço Schengen, das fronteiras",ok:false},{t:"O Banco Central Europeu, do euro",ok:false}], exp:"A CECA foi criada em 1951, pelo Tratado de Paris." },
     { q:"A Declaração Schuman é considerada…", a:[{t:"O ponto de partida da construção europeia",ok:true},{t:"O fim da Segunda Guerra Mundial, em 1945",ok:false},{t:"A criação do euro como moeda comum",ok:false},{t:"A adesão de Portugal à então CEE",ok:false}], exp:"Dela nasceu a cooperação que levou à União Europeia." },
+    { q:"Qual era o objetivo político fundamental da proposta Schuman?", a:[{t:"Tornar uma nova guerra menos provável",ok:true},{t:"Criar de imediato uma moeda única",ok:false},{t:"Formar um só Estado para toda a Europa",ok:false},{t:"Eliminar as línguas de cada país",ok:false}], exp:"A cooperação económica em setores estratégicos pretendia criar solidariedade e tornar a guerra materialmente mais difícil." },
   ],
   paz_cooperacao: [
     { q:"Em que anos decorreram as duas guerras mundiais?", a:[{t:"1914–1918 e 1939–1945",ok:true},{t:"1815–1820 e 1900–1905",ok:false},{t:"1950–1955 e 1980–1985",ok:false},{t:"1789–1799 e 1848",ok:false}], exp:"A Primeira foi de 1914 a 1918 e a Segunda de 1939 a 1945." },
@@ -311,6 +340,9 @@ export const QUIZ_BY_THEME_AVANCADO = {
     { q:"Qual foi o principal objetivo da CECA, criada em 1951?", a:[{t:"Evitar nova guerra entre a França e a Alemanha",ok:true},{t:"Aumentar o turismo entre os países europeus",ok:false},{t:"Criar uma moeda única para toda a Europa",ok:false},{t:"Substituir a NATO como aliança militar",ok:false}], exp:"Unir as indústrias do carvão e do aço tornou a guerra mais difícil." },
     { q:"O que é a solidariedade entre países europeus?", a:[{t:"Ajudarem-se nos momentos difíceis",ok:true},{t:"Cada país tratar apenas de si próprio",ok:false},{t:"Pagar impostos ao país vizinho",ok:false},{t:"Todos os países falarem a mesma língua",ok:false}], exp:"A solidariedade é um dos pilares da UE." },
     { q:"Qual destes é um exemplo de cooperação europeia?", a:[{t:"Países da UE ajudarem-se após incêndios",ok:true},{t:"Cada país ignorar o que se passa nos outros",ok:false},{t:"Os países fecharem as fronteiras ao vizinho",ok:false},{t:"Cada país construir um muro à sua volta",ok:false}], exp:"O mecanismo europeu de proteção civil envia ajuda entre países." },
+    { q:"Qual destas organizações é uma aliança de defesa coletiva, distinta da União Europeia?", a:[{t:"NATO",ok:true},{t:"Banco Central Europeu",ok:false},{t:"Parlamento Europeu",ok:false},{t:"Comissão Europeia",ok:false}], exp:"A NATO é uma organização internacional de defesa coletiva, diferente da UE." },
+    { q:"O que significa resolver um conflito por via diplomática?", a:[{t:"Negociar e procurar um acordo",ok:true},{t:"Usar violência como primeira opção",ok:false},{t:"Recusar qualquer conversa",ok:false},{t:"Impor silêncio aos cidadãos",ok:false}], exp:"A diplomacia procura soluções através do diálogo e da negociação." },
+    { q:"Porque é que a cooperação entre países é importante perante uma pandemia ou uma crise ambiental?", a:[{t:"Porque os problemas atravessam fronteiras",ok:true},{t:"Porque cada país resolve tudo sozinho",ok:false},{t:"Porque dispensa a ciência e os dados",ok:false},{t:"Porque impede a partilha de informação",ok:false}], exp:"Crises transfronteiriças exigem coordenação, partilha de dados e respostas conjuntas." },
   ],
   historia_ue: [
     { q:"Qual destes países NÃO foi fundador da CEE em 1957?", a:[{t:"Espanha",ok:true},{t:"Itália",ok:false},{t:"Bélgica",ok:false},{t:"Luxemburgo",ok:false}], exp:"A Espanha aderiu em 1986." },
@@ -318,6 +350,8 @@ export const QUIZ_BY_THEME_AVANCADO = {
     { q:"O Tratado de Lisboa, assinado em 2007, entrou em vigor em…", a:[{t:"2009",ok:true},{t:"2007",ok:false},{t:"2013",ok:false},{t:"1993",ok:false}], exp:"Entrou em vigor a 1 de dezembro de 2009." },
     { q:"Quando foi o maior alargamento da UE, com dez novos países?", a:[{t:"2004",ok:true},{t:"1995",ok:false},{t:"1986",ok:false},{t:"2013",ok:false}], exp:"A 1 de maio de 2004 entraram dez países, sobretudo da Europa de Leste." },
     { q:"Que país saiu da UE em 31 de janeiro de 2020?", a:[{t:"O Reino Unido",ok:true},{t:"A França",ok:false},{t:"A Suíça",ok:false},{t:"A Noruega",ok:false}], exp:"Foi o chamado «Brexit»." },
+    { q:"Em que ano entrou em vigor o Tratado de Maastricht?", a:[{t:"1993",ok:true},{t:"1986",ok:false},{t:"2004",ok:false},{t:"2009",ok:false}], exp:"O Tratado de Maastricht entrou em vigor em 1 de novembro de 1993." },
+    { q:"Qual destas sequências apresenta uma ordem cronológica correta?", a:[{t:"CECA (1951), Roma (1957), Maastricht (1992)",ok:true},{t:"Maastricht (1992), CECA (1951), Roma (1957)",ok:false},{t:"Roma (1957), Lisboa (2007), CECA (1951)",ok:false},{t:"UE (1993), CECA (1951), Roma (1957)",ok:false}], exp:"A CECA surgiu em 1951, os Tratados de Roma foram assinados em 1957 e Maastricht foi assinado em 1992, entrando em vigor em 1993." },
   ],
   valores_europeus: [
     { q:"Onde estão enumerados os valores da UE?", a:[{t:"No Tratado da União Europeia (artigo 2.º)",ok:true},{t:"Na Constituição da República Portuguesa",ok:false},{t:"No Código da Estrada de cada país",ok:false},{t:"Na Carta das Nações Unidas, em Nova Iorque",ok:false}], exp:"O artigo 2.º do Tratado lista os valores comuns." },
@@ -325,6 +359,8 @@ export const QUIZ_BY_THEME_AVANCADO = {
     { q:"A separação de poderes é importante porque…", a:[{t:"Evita que alguém tenha demasiado poder",ok:true},{t:"Faz com que as leis demorem mais tempo",ok:false},{t:"Dispensa a existência de tribunais",ok:false},{t:"Impede que se façam eleições livres",ok:false}], exp:"Dividir o poder protege a liberdade." },
     { q:"Quando as eleições são livres e justas, os cidadãos podem…", a:[{t:"Escolher os seus representantes",ok:true},{t:"Escolher todas as leis todos os dias",ok:false},{t:"Evitar pagar impostos",ok:false},{t:"Mudar as fronteiras",ok:false}], exp:"As eleições são o centro da democracia." },
     { q:"Que valor protege o direito a um julgamento justo?", a:[{t:"O Estado de direito",ok:true},{t:"A livre circulação",ok:false},{t:"O mercado único",ok:false},{t:"A moeda única",ok:false}], exp:"Num Estado de direito, ninguém está acima da lei." },
+    { q:"A igualdade perante a lei significa que…", a:[{t:"Todos têm proteção legal, sem discriminação",ok:true},{t:"Algumas pessoas estão acima da lei",ok:false},{t:"Só os governantes têm direitos legais",ok:false},{t:"As leis não valem para os visitantes",ok:false}], exp:"A igualdade perante a lei é um princípio essencial dos sistemas democráticos." },
+    { q:"Qual destes conjuntos reúne valores expressamente referidos no artigo 2.º do Tratado da União Europeia?", a:[{t:"Dignidade, liberdade, democracia, igualdade e Estado de direito",ok:true},{t:"Competição, censura, poder militar e uniformidade cultural",ok:false},{t:"Neutralidade, isolamento, segredo, obediência e tradição",ok:false},{t:"Riqueza, fama, tradição, autoridade e hierarquia social",ok:false}], exp:"O artigo 2.º do Tratado da União Europeia enumera estes valores como base da União." },
   ],
   direitos_cidadaos: [
     { q:"Que documento reúne os direitos fundamentais dos cidadãos da UE?", a:[{t:"A Carta dos Direitos Fundamentais da UE",ok:true},{t:"A Carta de Condução de cada país",ok:false},{t:"A Carta Magna das escolas europeias",ok:false},{t:"O Código Penal de cada país da UE",ok:false}], exp:"A Carta junta direitos como a dignidade, a liberdade e a igualdade." },
@@ -332,6 +368,9 @@ export const QUIZ_BY_THEME_AVANCADO = {
     { q:"O que é a «Iniciativa de Cidadania Europeia»?", a:[{t:"Um milhão de cidadãos pede uma lei à Comissão",ok:true},{t:"Um concurso de desenho entre escolas europeias",ok:false},{t:"Um passaporte especial para cidadãos europeus",ok:false},{t:"Uma eleição para escolher a Comissão",ok:false}], exp:"Exige um milhão de assinaturas em pelo menos sete países." },
     { q:"Que direito têm os cidadãos da UE fora da UE?", a:[{t:"Ajuda de qualquer embaixada de um país da UE",ok:true},{t:"Isenção de impostos em qualquer país do mundo",ok:false},{t:"Ter todos os serviços de saúde gratuitos",ok:false},{t:"Votar nas eleições nacionais de outro país",ok:false}], exp:"É a proteção consular dos cidadãos da UE." },
     { q:"O espaço Schengen permite…", a:[{t:"Passar fronteiras internas sem controlos",ok:true},{t:"Usar o euro em todos os países da UE",ok:false},{t:"Falar só inglês em todas as fronteiras",ok:false},{t:"Não pagar portagens nas autoestradas",ok:false}], exp:"Facilita viagens entre os países do espaço Schengen." },
+    { q:"Que regulamento europeu é conhecido por proteger os dados pessoais?", a:[{t:"O RGPD",ok:true},{t:"O Código Schengen",ok:false},{t:"O Pacto Ecológico Europeu",ok:false},{t:"O Tratado de Maastricht",ok:false}], exp:"O Regulamento Geral sobre a Proteção de Dados (RGPD) estabelece regras para o tratamento de dados pessoais." },
+    { q:"Qual destes é um direito relacionado com os teus dados pessoais ao abrigo do RGPD?", a:[{t:"Pedir acesso aos dados que uma organização tem sobre ti",ok:true},{t:"Exigir acesso aos dados privados de qualquer pessoa",ok:false},{t:"Impedir todas as utilizações legais de dados",ok:false},{t:"Apagar automaticamente todos os registos públicos",ok:false}], exp:"O RGPD prevê direitos como acesso, retificação e, em determinadas condições, apagamento." },
+    { q:"Uma empresa recolhe mais dados pessoais do que os necessários para prestar um serviço. Que princípio do RGPD pode estar em causa?", a:[{t:"Minimização dos dados",ok:true},{t:"Livre circulação de mercadorias",ok:false},{t:"Separação de poderes",ok:false},{t:"Voto universal",ok:false}], exp:"O princípio da minimização determina que os dados recolhidos devem ser adequados, pertinentes e limitados ao necessário." },
   ],
   instituicoes: [
     { q:"Que instituição propõe novas leis europeias?", a:[{t:"A Comissão Europeia",ok:true},{t:"O Banco Central Europeu",ok:false},{t:"O Tribunal de Contas",ok:false},{t:"O Conselho da Europa",ok:false}], exp:"A Comissão tem o poder de propor leis." },
@@ -339,6 +378,9 @@ export const QUIZ_BY_THEME_AVANCADO = {
     { q:"Que instituição reúne os governos dos países da UE e decide leis com o Parlamento?", a:[{t:"O Conselho da União Europeia",ok:true},{t:"O Tribunal de Justiça da UE",ok:false},{t:"O Parlamento Europeu, em Estrasburgo",ok:false},{t:"O Eurostat, de estatísticas",ok:false}], exp:"No Conselho estão representados os governos dos 27 países." },
     { q:"Como se chamam os membros do Parlamento Europeu?", a:[{t:"Eurodeputados",ok:true},{t:"Comissários",ok:false},{t:"Embaixadores",ok:false},{t:"Juízes",ok:false}], exp:"Os eurodeputados são eleitos pelos cidadãos." },
     { q:"Quantos eurodeputados elegeu Portugal em 2024?", a:[{t:"21",ok:true},{t:"12",ok:false},{t:"27",ok:false},{t:"36",ok:false}], exp:"Portugal elegeu 21 dos 720 eurodeputados." },
+    { q:"Que instituição reúne ministros dos governos dos Estados-Membros para aprovar legislação da UE em conjunto com o Parlamento?", a:[{t:"Conselho da União Europeia",ok:true},{t:"Conselho Europeu",ok:false},{t:"Tribunal de Contas Europeu",ok:false},{t:"Comité das Regiões",ok:false}], exp:"O Conselho da União Europeia reúne ministros nacionais e é colegislador com o Parlamento em muitas áreas." },
+    { q:"Qual é a principal função do Tribunal de Justiça da União Europeia?", a:[{t:"Garantir o cumprimento do direito da UE",ok:true},{t:"Organizar as eleições nacionais dos países",ok:false},{t:"Definir os orçamentos das câmaras municipais",ok:false},{t:"Escolher os eurodeputados de cada país",ok:false}], exp:"O Tribunal de Justiça assegura que o direito da UE é respeitado e interpretado de forma uniforme." },
+    { q:"Qual é a diferença correta entre o Conselho Europeu e o Conselho da União Europeia?", a:[{t:"Um define prioridades políticas; o outro aprova leis",ok:true},{t:"São duas designações da mesma instituição",ok:false},{t:"Um é eleito diretamente e o outro é um tribunal",ok:false},{t:"Um representa só as regiões e o outro só as cidades",ok:false}], exp:"O Conselho Europeu reúne chefes de Estado ou de Governo e define prioridades; o Conselho da UE reúne ministros nacionais e exerce funções legislativas e orçamentais." },
   ],
   ambiente: [
     { q:"O que é o Pacto Ecológico Europeu?", a:[{t:"Um plano da UE para o clima até 2050",ok:true},{t:"Um tratado sobre desportos de inverno",ok:false},{t:"Uma moeda feita com materiais reciclados",ok:false},{t:"Uma lei sobre as férias dos alunos",ok:false}], exp:"Visa reduzir emissões e proteger a natureza." },
@@ -346,6 +388,8 @@ export const QUIZ_BY_THEME_AVANCADO = {
     { q:"Qual gás é o principal responsável pelo aquecimento global provocado pelo ser humano?", a:[{t:"O dióxido de carbono (CO₂)",ok:true},{t:"O oxigénio, que respiramos",ok:false},{t:"O azoto, que existe no ar",ok:false},{t:"O hélio, dos balões",ok:false}], exp:"O CO₂ vem sobretudo da queima de combustíveis fósseis." },
     { q:"O que é a economia circular?", a:[{t:"Reutilizar e reciclar para gastar menos",ok:true},{t:"Fabricar tudo em fábricas circulares",ok:false},{t:"Usar e deitar fora o que não serve",ok:false},{t:"Comprar sempre tudo novo, todos os meses",ok:false}], exp:"Os produtos e materiais têm uma segunda vida." },
     { q:"Qual a vantagem de usar o transporte público?", a:[{t:"Menos carros e menos emissões",ok:true},{t:"Mais trânsito e mais ruído",ok:false},{t:"Mais poluição no ar das cidades",ok:false},{t:"Menos paragens para os passageiros",ok:false}], exp:"O transporte público reduz o trânsito e a poluição." },
+    { q:"Qual destes habitats é particularmente importante para muitas aves migratórias?", a:[{t:"Zonas húmidas",ok:true},{t:"Estacionamentos",ok:false},{t:"Minas abandonadas sem vegetação",ok:false},{t:"Autoestradas",ok:false}], exp:"Zonas húmidas oferecem alimento, abrigo e locais de descanso a muitas aves migratórias." },
+    { q:"O que é uma espécie invasora?", a:[{t:"Espécie de fora que prejudica o ecossistema",ok:true},{t:"Qualquer espécie que seja muito rara",ok:false},{t:"Uma espécie que só vive em reservas naturais",ok:false},{t:"Uma espécie que migra todos os anos",ok:false}], exp:"Espécies exóticas invasoras podem ameaçar a biodiversidade, os ecossistemas e atividades humanas." },
   ],
   energia_clima: [
     { q:"Portugal produz muita eletricidade a partir de…", a:[{t:"Energias renováveis, como a eólica e a solar",ok:true},{t:"Apenas carvão e outros combustíveis fósseis",ok:false},{t:"Apenas energia nuclear de centrais próprias",ok:false},{t:"Apenas gás natural vindo de fora",ok:false}], exp:"Em vários anos recentes, mais de metade da eletricidade veio de renováveis." },
@@ -353,6 +397,8 @@ export const QUIZ_BY_THEME_AVANCADO = {
     { q:"O que é a energia geotérmica?", a:[{t:"Calor vindo do interior da Terra",ok:true},{t:"Energia produzida pelos ventos",ok:false},{t:"Energia produzida pelas ondas do mar",ok:false},{t:"Energia que vem diretamente do Sol",ok:false}], exp:"Nos Açores, produz-se eletricidade a partir de calor da terra." },
     { q:"Qual destes é um combustível fóssil?", a:[{t:"O carvão",ok:true},{t:"O vento",ok:false},{t:"O Sol",ok:false},{t:"A água",ok:false}], exp:"Os combustíveis fósseis libertam CO₂ quando queimados." },
     { q:"Porque é bom isolar bem as casas?", a:[{t:"Gasta-se menos energia na casa",ok:true},{t:"As casas ficam mais barulhentas",ok:false},{t:"As divisões ficam com menos luz",ok:false},{t:"O consumo de energia aumenta",ok:false}], exp:"Um bom isolamento poupa energia e dinheiro." },
+    { q:"Qual é a principal finalidade da eficiência energética?", a:[{t:"Obter o mesmo serviço usando menos energia",ok:true},{t:"Usar sempre mais energia",ok:false},{t:"Impedir o uso de energias renováveis",ok:false},{t:"Aumentar o desperdício",ok:false}], exp:"A eficiência energética permite prestar o mesmo serviço com menor consumo de energia." },
+    { q:"Qual é a diferença entre adaptação e mitigação das alterações climáticas?", a:[{t:"Adaptar é preparar-se; mitigar é reduzir emissões",ok:true},{t:"Adaptar é reduzir emissões; mitigar é construir abrigos",ok:false},{t:"São duas palavras para o mesmo conceito",ok:false},{t:"Mitigar é ignorar os impactos do clima",ok:false}], exp:"Adaptação prepara pessoas e ecossistemas para os impactos; mitigação atua nas causas, reduzindo emissões e reforçando sumidouros." },
   ],
   ciencia_inovacao: [
     { q:"Como se chama o sistema europeu de navegação por satélite?", a:[{t:"Galileo",ok:true},{t:"Copernicus",ok:false},{t:"Hubble",ok:false},{t:"Apollo",ok:false}], exp:"O Galileo é o «GPS europeu»." },
@@ -360,6 +406,7 @@ export const QUIZ_BY_THEME_AVANCADO = {
     { q:"Como se chama o principal programa de financiamento da UE para investigação e inovação (2021–2027)?", a:[{t:"Horizonte Europa",ok:true},{t:"Erasmus+, de mobilidade",ok:false},{t:"Galileo, de navegação",ok:false},{t:"Euronext, da bolsa",ok:false}], exp:"O Horizonte Europa apoia projetos científicos em toda a UE." },
     { q:"O CERN, onde fica o maior acelerador de partículas do mundo, localiza-se perto de…", a:[{t:"Genebra",ok:true},{t:"Lisboa",ok:false},{t:"Berlim",ok:false},{t:"Roma",ok:false}], exp:"O CERN fica junto a Genebra, na fronteira entre a Suíça e a França." },
     { q:"Que regra da UE protege os dados pessoais dos cidadãos?", a:[{t:"O RGPD, de proteção de dados",ok:true},{t:"A regra dos 3 R, da reciclagem",ok:false},{t:"O Dia da Europa, a 9 de maio",ok:false},{t:"O Tratado de Roma, de 1957",ok:false}], exp:"O RGPD aplica-se desde 2018 em toda a UE." },
+    { q:"Porque é que os dados científicos devem ser avaliados e, quando possível, verificados por outros investigadores?", a:[{t:"Para testar a robustez dos resultados e detetar erros",ok:true},{t:"Para impedir qualquer debate",ok:false},{t:"Para garantir que todos obtêm sempre a mesma opinião",ok:false},{t:"Para substituir a recolha de provas",ok:false}], exp:"A revisão e a reprodução de resultados ajudam a avaliar a qualidade e fiabilidade da investigação." },
   ],
   mobilidade_erasmus: [
     { q:"Em que ano começou o programa Erasmus?", a:[{t:"1987",ok:true},{t:"1957",ok:false},{t:"1999",ok:false},{t:"2012",ok:false}], exp:"O Erasmus nasceu em 1987 e deu origem ao Erasmus+." },
@@ -367,6 +414,8 @@ export const QUIZ_BY_THEME_AVANCADO = {
     { q:"O que significa «roaming» sem custos extra na UE?", a:[{t:"Usar o telemóvel noutro país da UE sem custos extra",ok:true},{t:"Todos os telemóveis passam a ser gratuitos na Europa",ok:false},{t:"A internet fica gratuita em toda a UE para sempre",ok:false},{t:"Deixam de se pagar chamadas dentro do próprio país",ok:false}], exp:"Desde 2017, «roam like at home» aplica-se na UE." },
     { q:"Qual destes países NÃO faz parte do espaço Schengen?", a:[{t:"A Irlanda",ok:true},{t:"Portugal",ok:false},{t:"Espanha",ok:false},{t:"Itália",ok:false}], exp:"A Irlanda e Chipre são da UE, mas não estão no espaço Schengen." },
     { q:"O que é o Corpo Europeu de Solidariedade?", a:[{t:"Voluntariado de jovens em projetos solidários",ok:true},{t:"Um exército europeu composto por jovens soldados",ok:false},{t:"Uma seleção de futebol dos jovens europeus",ok:false},{t:"Um banco europeu para jovens poupadores",ok:false}], exp:"Os jovens participam em projetos solidários na Europa." },
+    { q:"Qual destes documentos pode ser usado por um cidadão português para viajar para outro país da UE?", a:[{t:"Cartão de Cidadão válido",ok:true},{t:"Cartão de biblioteca",ok:false},{t:"Cartão de transportes",ok:false},{t:"Cartão de supermercado",ok:false}], exp:"O Cartão de Cidadão válido é um documento de viagem para cidadãos portugueses em deslocações dentro da UE." },
+    { q:"Qual é a diferença entre União Europeia e Espaço Schengen?", a:[{t:"A UE é uma união política; Schengen é circulação livre",ok:true},{t:"São o mesmo conjunto de países europeus",ok:false},{t:"Schengen é a moeda comum da UE",ok:false},{t:"A UE trata de vistos e Schengen do comércio",ok:false}], exp:"Os dois conjuntos não são iguais: há países da UE fora de Schengen e países Schengen que não pertencem à UE." },
   ],
   jovens_cidadania_digital: [
     { q:"Com que idade se pode votar nas eleições nacionais em Portugal?", a:[{t:"18 anos",ok:true},{t:"16 anos",ok:false},{t:"21 anos",ok:false},{t:"14 anos",ok:false}], exp:"Em alguns países da UE pode votar-se mais cedo nas europeias, mas em Portugal é aos 18." },
@@ -374,5 +423,8 @@ export const QUIZ_BY_THEME_AVANCADO = {
     { q:"O que é o Dia da Internet Mais Segura (Safer Internet Day)?", a:[{t:"Um dia, em fevereiro, para uma internet mais segura",ok:true},{t:"Um dia para proibir o uso da internet nas escolas",ok:false},{t:"Um dia para vender tecnologia nova às famílias",ok:false},{t:"O dia em que se comemora a chegada do euro",ok:false}], exp:"É celebrado em muitos países, incluindo os da UE." },
     { q:"Para identificar desinformação, qual destas estratégias ajuda?", a:[{t:"Verificar a fonte e comparar com outras notícias",ok:true},{t:"Acreditar sempre no que é mais partilhado",ok:false},{t:"Confiar apenas no título e na imagem da notícia",ok:false},{t:"Desconfiar de tudo sem nunca verificar nada",ok:false}], exp:"O espírito crítico ajuda a distinguir o que é verdadeiro." },
     { q:"Qual é o contrário de indiferença, quando falamos de cidadania?", a:[{t:"Participação e envolvimento",ok:true},{t:"Silêncio e afastamento",ok:false},{t:"Desinteresse e distância",ok:false},{t:"Isolamento e cansaço",ok:false}], exp:"A Europa precisa de pessoas interessadas e participativas." },
+    { q:"O que é phishing?", a:[{t:"Uma fraude para roubar dados com mensagens falsas",ok:true},{t:"Um programa para editar vídeos e fotografias",ok:false},{t:"Uma forma segura de guardar palavras-passe",ok:false},{t:"Um desporto de pesca nos rios europeus",ok:false}], exp:"O phishing tenta enganar as pessoas para que revelem dados pessoais ou credenciais." },
+    { q:"Qual é um sinal possível de desinformação?", a:[{t:"Notícia sem fonte, que pede partilha imediata",ok:true},{t:"Informação confirmada por várias fontes",ok:false},{t:"Artigo com data, autor e fontes claras",ok:false},{t:"Comunicado oficial que se pode verificar",ok:false}], exp:"A ausência de fontes claras e a pressão para partilhar rapidamente são sinais de alerta." },
+    { q:"Recebes um vídeo viral sobre um acontecimento europeu. Qual é o melhor procedimento antes de o partilhares?", a:[{t:"Verificar origem, data e fontes independentes",ok:true},{t:"Partilhar porque tem muitas visualizações",ok:false},{t:"Confiar apenas nos comentários do vídeo",ok:false},{t:"Assumir que o vídeo é de hoje e verdadeiro",ok:false}], exp:"Um vídeo pode ser antigo ou estar fora de contexto; verificar origem, data e confirmação independente reduz a propagação de informação falsa." },
   ],
 };

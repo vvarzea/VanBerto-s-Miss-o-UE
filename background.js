@@ -15,8 +15,8 @@
 // que o ficheiro principal fazia às variáveis internas `doorGlowGfx` e
 // `platDecorGfx`/`platDecorData` ao (re)carregar um nível.
 
-import { THEMES } from "./data-levels.js?v=20261031eu2";
-import { QUIZ_TIPS } from "./data-quiz.js?v=20261031eu2";
+import { THEMES } from "./data-levels.js?v=20261031eu3";
+import { QUIZ_TIPS } from "./data-quiz.js?v=20261031eu3";
 
 let bgGraphics, farGraphics, hillsGraphics, groundGraphics, decorGraphics;
 let platDecorGfx, sunGraphics, moonGraphics, starGraphics, doorGlowGfx;

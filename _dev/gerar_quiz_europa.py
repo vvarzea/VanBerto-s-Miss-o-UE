@@ -434,6 +434,79 @@ AJ.update({
  ("jovens_cidadania_digital","a",2): ("Um dia, em fevereiro, para uma internet mais segura",["Um dia para proibir o uso da internet nas escolas","Um dia para vender tecnologia nova às famílias","O dia em que se comemora a chegada do euro"]),
  ("jovens_cidadania_digital","a",3): ("Verificar a fonte e comparar com outras notícias",["Acreditar sempre no que é mais partilhado","Confiar apenas no título e na imagem da notícia","Desconfiar de tudo sem nunca verificar nada"]),
 })
+
+# ───────────────────────── Perguntas novas (documento «100 Perguntas Novas») ─────────────────────────
+# Revistas uma a uma: entram só as que não repetem perguntas já existentes; as que tinham erros foram corrigidas.
+# (nível, início da pergunta) → alterações. Fácil → banco Fácil (3 opções); Difícil/Extremo → banco Difícil (4 opções).
+import json as _json
+_NOVAS = _json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'perguntas_novas_vanda.json'), encoding='utf-8'))
+_ENTRAM = {
+ 1:["Qual é o maior país da Europa"],
+ 2:["Em que parte da Europa se localiza","Qual destas ilhas pertence ao arquipélago","Qual destas opções identifica corretamente os grupos"],
+ 3:["Qual é a capital da Bélgica","Qual é a capital da Estónia","Que país tem Sófia","Qual destas associações país–capital"],
+ 4:["As estrelas da bandeira europeia têm quantas pontas"],
+ 5:["Qual destas afirmações sobre os símbolos"],
+ 6:["Qual destas línguas é oficial da União","Qual destas línguas pertence ao grupo das línguas fino","Porque é que as instituições europeias traduzem"],
+ 7:["Stonehenge"],
+ 8:["A tradição musical do flamenco","Em que país nasceu a tradição dos mercados de Natal"],
+ 9:["Qual é uma atitude de respeito","Numa atividade, um colega tem","Uma publicação online ridiculariza"],
+ 10:["Qual era o objetivo político fundamental"],
+ 11:["O que ajuda a manter a paz","Quando um país sofre uma catástrofe","Qual destas organizações é uma aliança","O que significa resolver um conflito","Porque é que a cooperação entre países"],
+ 12:["Em que ano entrou em vigor o Tratado de Maastricht","Qual destas sequências apresenta"],
+ 13:["Qual destes é um valor fundamental","A igualdade perante a lei","Qual destes conjuntos reúne valores"],
+ 14:["Qual destes é um direito de quem vive","Se um produto comprado","Que regulamento europeu é conhecido","Qual destes é um direito relacionado com os teus dados","Uma empresa recolhe mais dados"],
+ 15:["Que instituição reúne ministros dos governos","Qual é a principal função do Tribunal","Qual é a diferença correta entre o Conselho Europeu"],
+ 16:["Qual destas ações ajuda a reduzir o lixo","Qual destes habitats é particularmente","O que é uma espécie invasora"],
+ 17:["Qual é a principal finalidade da eficiência","Qual é a diferença entre adaptação"],
+ 18:["Que instrumento permite observar","Que instrumento é usado para observar","Porque é que os dados científicos"],
+ 19:["Qual destes documentos pode ser usado","Qual é a diferença entre União Europeia e Espaço Schengen"],
+ 20:["Antes de publicar uma fotografia","O que é phishing","Qual é um sinal possível de desinformação","Recebes um vídeo viral"],
+}
+def _correcoes(q):
+    if q['q'].startswith('Qual é o maior país da Europa'):
+        q['q']='Qual é o maior país situado inteiramente na Europa?'
+    if q['q'].startswith('Em que parte da Europa se localiza'):
+        q['q']='Em que parte da Europa se localiza Portugal continental?'
+        q['a']=[{'t':'Sudoeste','ok':True},{'t':'Noroeste','ok':False},{'t':'Nordeste','ok':False}]
+    if q['q'].startswith('Se um produto comprado'):
+        q['a']=[{'t':'Ao vendedor','ok':True},{'t':'Ao Parlamento Europeu','ok':False},{'t':'Ao Tribunal de Justiça da UE','ok':False}]
+        q['exp']='Em regra, deves contactar primeiro o vendedor; na UE, a garantia legal dos bens é de, pelo menos, dois anos.'
+    if q['q'].startswith('Que regulamento europeu é conhecido'):
+        q['a']=[{'t':'O RGPD','ok':True},{'t':'O Código Schengen','ok':False},{'t':'O Pacto Ecológico Europeu','ok':False},{'t':'O Tratado de Maastricht','ok':False}]
+    return q
+_porChave={n['chave']:n for n in L}
+_chaves=[n['chave'] for n in L]
+_n_novas=0
+for q in _NOVAS:
+    if not any(q['q'].startswith(p) for p in _ENTRAM.get(q['nivel'],[])): continue
+    q=_correcoes(q)
+    ok=[a for a in q['a'] if a['ok']]; erradas=[a['t'] for a in q['a'] if not a['ok']]
+    assert len(ok)==1
+    n=_porChave[_chaves[q['nivel']-1]]
+    if q['tipo']=='FÁCIL': assert len(erradas)==2,q['q']; n['facil'].append((q['q'],ok[0]['t'],*erradas,q['exp']))
+    else: assert len(erradas)==3,q['q']; n['avancado'].append((q['q'],ok[0]['t'],*erradas,q['exp']))
+    _n_novas+=1
+print('perguntas novas integradas:',_n_novas)
+
+AJ.update({
+ ("linguas","a",6): ("Para que os cidadãos acompanhem a vida da UE",["Para que todos os países adotem uma só língua","Para substituir as línguas regionais de cada país","Apenas para facilitar o turismo na Europa"]),
+ ("diversidade_respeito","a",5): ("Adaptar a atividade para o incluir",["Pedir-lhe que assista sem participar","Ignorar o pedido e seguir o plano","Decidir sem lhe perguntar o que precisa"]),
+ ("diversidade_respeito","a",6): ("Não partilhar, denunciar e apoiar quem foi visado",["Partilhar para aumentar as visualizações","Responder com insultos ao outro grupo","Guardar a publicação e enviá-la à turma"]),
+ ("dia_europa_schuman","a",5): ("Tornar uma nova guerra menos provável",["Criar de imediato uma moeda única","Formar um só Estado para toda a Europa","Eliminar as línguas de cada país"]),
+ ("paz_cooperacao","a",7): ("Porque os problemas atravessam fronteiras",["Porque cada país resolve tudo sozinho","Porque dispensa a ciência e os dados","Porque impede a partilha de informação"]),
+ ("historia_ue","a",6): ("CECA (1951), Roma (1957), Maastricht (1992)",["Maastricht (1992), CECA (1951), Roma (1957)","Roma (1957), Lisboa (2007), CECA (1951)","UE (1993), CECA (1951), Roma (1957)"]),
+ ("valores_europeus","a",5): ("Todos têm proteção legal, sem discriminação",["Algumas pessoas estão acima da lei","Só os governantes têm direitos legais","As leis não valem para os visitantes"]),
+ ("valores_europeus","a",6): ("Dignidade, liberdade, democracia, igualdade e Estado de direito",["Competição, censura, poder militar e uniformidade cultural","Neutralidade, isolamento, segredo, obediência e tradição","Riqueza, fama, tradição, autoridade e hierarquia social"]),
+ ("instituicoes","a",6): ("Garantir o cumprimento do direito da UE",["Organizar as eleições nacionais dos países","Definir os orçamentos das câmaras municipais","Escolher os eurodeputados de cada país"]),
+ ("instituicoes","a",7): ("Um define prioridades políticas; o outro aprova leis",["São duas designações da mesma instituição","Um é eleito diretamente e o outro é um tribunal","Um representa só as regiões e o outro só as cidades"]),
+ ("ambiente","a",6): ("Espécie de fora que prejudica o ecossistema",["Qualquer espécie que seja muito rara","Uma espécie que só vive em reservas naturais","Uma espécie que migra todos os anos"]),
+ ("energia_clima","a",6): ("Adaptar é preparar-se; mitigar é reduzir emissões",["Adaptar é reduzir emissões; mitigar é construir abrigos","São duas palavras para o mesmo conceito","Mitigar é ignorar os impactos do clima"]),
+ ("mobilidade_erasmus","a",6): ("A UE é uma união política; Schengen é circulação livre",["São o mesmo conjunto de países europeus","Schengen é a moeda comum da UE","A UE trata de vistos e Schengen do comércio"]),
+ ("jovens_cidadania_digital","a",5): ("Uma fraude para roubar dados com mensagens falsas",["Um programa para editar vídeos e fotografias","Uma forma segura de guardar palavras-passe","Um desporto de pesca nos rios europeus"]),
+ ("jovens_cidadania_digital","a",6): ("Notícia sem fonte, que pede partilha imediata",["Informação confirmada por várias fontes","Artigo com data, autor e fontes claras","Comunicado oficial que se pode verificar"]),
+ ("jovens_cidadania_digital","a",7): ("Verificar origem, data e fontes independentes",["Partilhar porque tem muitas visualizações","Confiar apenas nos comentários do vídeo","Assumir que o vídeo é de hoje e verdadeiro"]),
+})
+
 def aplicar_ajustes():
     usados=set()
     for n in L:

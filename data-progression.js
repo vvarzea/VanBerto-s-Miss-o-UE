@@ -16,7 +16,7 @@ export const MAP_REGIONS = [
     nodePos:[{x:9.0,y:82.0},{x:24.0,y:38.0},{x:44.0,y:88.0},{x:55.0,y:62.0},{x:73.0,y:22.0},{x:84.0,y:73.0}] },
   { id:"participacao",   icon:"🌱", name:"O Futuro da Europa",            sub:"Ambiente, inovação, jovens e a Sombra da Indiferença",  levels:[15,16,17,18,19],
     mapBg:"map-mundo4.webp",
-    nodePos:[{x:5.0,y:78.0},{x:18.0,y:89.0},{x:35.0,y:82.0},{x:30.0,y:59.0},{x:50.0,y:53.0}] },
+    nodePos:[{x:8.0,y:84.0},{x:32.0,y:40.0},{x:42.0,y:66.0},{x:50.0,y:20.0},{x:80.0,y:75.0}] },
   { id:"base",           icon:"🏠", name:"Base do VanBerto's",            sub:"O teu ponto de partida",                               levels:[] },
 ];
 
