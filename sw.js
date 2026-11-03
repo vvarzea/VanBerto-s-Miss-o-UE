@@ -1,111 +1,41 @@
-// Service worker: depois da 1.ª visita, o jogo abre e funciona sem rede.
-//  • Na instalação guarda o «núcleo» (páginas, scripts, estilos, Phaser, fontes, ícones), com o mesmo ?v= que o index.html pede.
-//  • As imagens dos fundos (grandes) guardam-se à medida que o jogo as pede: sem rede, os níveis que já foram
-//    jogados têm fundo; os outros mostram o céu desenhado (o jogo já lida com isso em applyBackground).
-//  • Cada versão tem a sua própria cache, por isso nunca se misturam ficheiros de versões diferentes.
-// VERSION é carimbada pelo _dev/release.py e tem de ser igual à string ?v= do index.html (o check.mjs verifica).
-const VERSION = "20261031eu4";
-const CACHE = "vanbertos-" + VERSION;
+const CACHE='vanberto-ue-v10';
+// Essenciais da própria página (se faltar um, a instalação falha).
+const CORE=['./','index.html','manifest.webmanifest','favicon.png','apple-touch-icon.png','icon-128.png','icon-192.png','icon-256.png','icon-512.png','icon-maskable-192.png','icon-maskable-512.png'];
+// Recursos externos do menu (fontes e mapa): guardados em melhor esforço, para o menu abrir também offline.
+const FONT_CSS='https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@700;800&display=swap';
+const EXTRA=[FONT_CSS,
+  'https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js',
+  'https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js',
+  'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json'];
+const EXTRA_HOSTS=['fonts.googleapis.com','fonts.gstatic.com','cdn.jsdelivr.net'];
 
-// Ficheiros do núcleo. Os .js e .css pedem-se com ?v=VERSION, como no index.html e nos imports.
-const CORE = [
-  "./", "index.html", "manifest.json",
-  "dia-crianca.css", "dia-crianca.js", "phaser.min.js",
-  "game/artefacts.js", "game/boss-attacks.js", "game/boss-combat.js", "game/boss-core.js", "game/boss-end.js",
-  "game/dialogue.js", "game/dom.js", "game/door.js", "game/feedback.js", "game/flow.js", "game/input.js",
-  "game/items.js", "game/level.js", "game/map.js", "game/overlays.js", "game/quiz.js", "game/rooms.js",
-  "game/scene.js", "game/screens.js", "game/state.js", "game/stats.js", "game/ui.js", "game/vanberto.js",
-  "game/world.js",
-  "achievements.js", "audio.js", "background.js", "cinematics.js", "stars.js", "storage.js", "textures.js",
-  "data-bosses.js", "data-flavor.js", "data-levels.js", "data-progression.js", "data-quiz.js", "data-story.js",
-  "vanberto_real.png", "apple-touch-icon.png", "favicon.ico", "favicon-16x16.png", "favicon-32x32.png", "favicon-48x48.png",
-  "icon-192.png", "icon-512.png", "icon-maskable-512.png",
-  "fonts/baloo-2-latin-400-normal.woff2", "fonts/baloo-2-latin-600-normal.woff2",
-  "fonts/baloo-2-latin-700-normal.woff2", "fonts/baloo-2-latin-800-normal.woff2",
-  "fonts/nunito-latin-400-normal.woff2", "fonts/nunito-latin-400-italic.woff2",
-  "fonts/nunito-latin-600-normal.woff2", "fonts/nunito-latin-700-normal.woff2"
-];
-const versioned = f => /\.(js|css)$/.test(f) ? f + "?v=" + VERSION : f;
+self.addEventListener('install',e=>{e.waitUntil((async()=>{
+  const c=await caches.open(CACHE);
+  await c.addAll(CORE);
+  // Se falhar (sem rede), a instalação continua; ficam guardados na primeira visita com internet.
+  await Promise.all(EXTRA.map(u=>c.add(new Request(u,{mode:'cors'})).catch(()=>{})));
+  try{
+    const css=await (await c.match(FONT_CSS,{ignoreVary:true})).text();
+    const urls=[...css.matchAll(/url\((https:[^)]+)\)/g)].map(m=>m[1]);
+    await Promise.all(urls.map(u=>c.add(new Request(u,{mode:'cors'})).catch(()=>{})));
+  }catch(_){}
+  await self.skipWaiting();
+})());});
 
-self.addEventListener("install", (event) => {
-  event.waitUntil((async () => {
-    const cache = await caches.open(CACHE);
-    // cache:"reload" ignora a cache HTTP do browser, para guardar mesmo a versão que está no servidor
-    await cache.addAll(CORE.map(f => new Request(versioned(f), { cache: "reload" })));
-    // o mesmo conteúdo serve para «/» e para «/index.html»
-    const home = await cache.match("index.html");
-    if (home) await cache.put("./", home.clone());
-    await self.skipWaiting();
-  })());
-});
+self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(n=>n!==CACHE).map(n=>caches.delete(n)))).then(()=>self.clients.claim()));});
 
-self.addEventListener("activate", (event) => {
-  event.waitUntil((async () => {
-    for (const k of await caches.keys()) if (k.startsWith("vanbertos-") && k !== CACHE) await caches.delete(k);
-    await self.clients.claim();
-  })());
-});
-
-async function timeoutFetch(req, ms) {
-  const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), ms);
-  try { return await fetch(req, { signal: ctl.signal }); } finally { clearTimeout(t); }
-}
-
-// Páginas: rede primeiro (apanha logo a versão nova), com cache como reserva se não houver rede ou estiver lenta.
-async function pageRequest(req) {
-  const cache = await caches.open(CACHE);
-  const cached = (await cache.match(req)) || (await cache.match("./"));
-  try {
-    const res = cached ? await timeoutFetch(req, 4000) : await fetch(req);
-    if (res && res.ok) cache.put(req, res.clone());
-    return res;
-  } catch (e) {
-    return cached || Response.error();
-  }
-}
-
-// Tudo o resto: cache primeiro; se faltar, vai à rede e guarda.
-async function assetRequest(req) {
-  const cache = await caches.open(CACHE);
-  const hit = await cache.match(req);
-  if (hit) return hit;
-  try {
-    const res = await fetch(req);
-    if (res && res.ok) cache.put(req, res.clone());
-    return res;
-  } catch (e) {
-    return Response.error();
-  }
-}
-
-// Descarregar TUDO de propósito (botão "Guardar para jogar sem rede", em Opções): o cliente envia
-// a lista de fundos (dia-crianca.js sabe-a — BG_FILES) por uma MessageChannel e o service worker
-// vai buscando e guardando cada um, respondendo o progresso à medida que avança.
-self.addEventListener("message", (event) => {
-  if (event.data?.type !== "CACHE_ALL") return;
-  const port = event.ports[0];
-  const files = event.data.files || [];
-  event.waitUntil((async () => {
-    const cache = await caches.open(CACHE);
-    let done = 0, failed = [];
-    for (const f of files) {
-      try {
-        if (!(await cache.match(f))) {
-          const res = await fetch(f);
-          if (res && res.ok) await cache.put(f, res.clone()); else failed.push(f);
-        }
-      } catch (e) { failed.push(f); }
-      done++;
-      port?.postMessage({ type: "CACHE_ALL_PROGRESS", done, total: files.length });
-    }
-    port?.postMessage({ type: "CACHE_ALL_DONE", failed });
-  })());
-});
-
-self.addEventListener("fetch", (event) => {
-  const req = event.request;
-  if (req.method !== "GET") return;
-  const url = new URL(req.url);
-  if (url.origin !== self.location.origin || url.pathname.endsWith("/sw.js")) return;
-  event.respondWith(req.mode === "navigate" ? pageRequest(req) : assetRequest(req));
+// Própria página: stale-while-revalidate (abre logo da cache e atualiza em segundo plano).
+// Fontes e mapa externos: cache primeiro, sem voltar a descarregar (são ficheiros grandes e estáveis).
+// Os jogos (links) são páginas de fora e precisam de internet.
+self.addEventListener('fetch',e=>{
+  const r=e.request;
+  if(r.method!=='GET')return;
+  const u=new URL(r.url);
+  const same=u.origin===location.origin;
+  if(!same&&!EXTRA_HOSTS.includes(u.hostname))return;
+  e.respondWith(caches.open(CACHE).then(c=>c.match(r,{ignoreSearch:same,ignoreVary:true}).then(hit=>{
+    if(hit&&!same)return hit;
+    const net=fetch(r).then(res=>{if(res.ok)c.put(r,res.clone());return res;}).catch(()=>hit||Response.error());
+    return hit||net;
+  })));
 });
