@@ -1367,10 +1367,14 @@ body.hc-mode .review-explanation { color: #ffff00 !important; border-color: #555
   font-size: 20px;
   min-height: 56px;
   gap: 10px;
-  background: linear-gradient(180deg, #ff7a45 0%, #d43b0e 100%) !important;
-  box-shadow: 4px 4px 0 #020618, 0 0 18px rgba(255,204,51,0.35) !important;
+  /* «Nova Aventura» — amarelo-ouro da bandeira europeia, com texto azul-escuro para contraste */
+  background: linear-gradient(180deg, #ffe45c 0%, #f5b800 100%) !important;
+  border-color: #fff1a8 !important;
+  color: #0a1f5c !important;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.45) !important;
+  box-shadow: 4px 4px 0 #020618, 0 0 18px rgba(255,214,51,0.5) !important;
 }
-.menu-tile.primary span { font-size: 15px; font-weight: 900; }
+.menu-tile.primary span { font-size: 15px; font-weight: 900; color: #0a1f5c; }
 
 /* Tablet: 3 colunas secundárias — mais espaço por tile */
 @media (min-width: 461px) and (max-width: 700px) {

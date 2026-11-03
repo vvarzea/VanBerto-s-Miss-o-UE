@@ -7,45 +7,45 @@
  * As variáveis de estado vivem em state.js; aqui alteram-se com set_<nome>().
  *************************************************/
 
-import { handleBossItemCollect, handleBossMalwareCollision } from "./boss-combat.js?v=20261031eu3";
-import { vbSayRandom } from "./dialogue.js?v=20261031eu3";
-import { hitFlash } from "./dom.js?v=20261031eu3";
-import { applyHitStop, pickPraise, showFloat } from "./feedback.js?v=20261031eu3";
-import { showGameOver } from "./flow.js?v=20261031eu3";
-import { updateHearts } from "./level.js?v=20261031eu3";
-import { saveGame } from "./overlays.js?v=20261031eu3";
-import { snapPlayerToGround } from "./rooms.js?v=20261031eu3";
-import { _critterSession, _overlayPaused, _starMelodyInterval, awaitingQuiz, collectedItemIndices, collectedRoomPipes, currentLevel, currentLevelTip, difficulty, doubleJumpActive, doubleJumpCountdown, doubleJumpTimer, getMaxLives, heartsGfx, inSecretRoom, invuln, invulnBlinkEvent, invulnEndEvent, isStarAllowedExtremo, itemCountText, itemsCollected, itemsGroup, itemsTotal, lives, livesLostThisLevel, pausedByTeacher, player, powerCountdown, powerIndicator, powered, poweredTimer, sceneRef, score, scoreText, secretRoomTemp, set__hudDirty, set__starMelodyInterval, set_awaitingQuiz, set_doubleJumpActive, set_doubleJumpCountdown, set_doubleJumpTimer, set_doubleJumpUsed, set_invuln, set_invulnBlinkEvent, set_invulnEndEvent, set_itemsCollected, set_lives, set_livesLostThisLevel, set_powerCountdown, set_powered, set_poweredTimer, set_score, set_starPower, set_starPowerCountVal, set_starPowerCountdown, set_starPowerTimer, starPower, starPowerCountVal, starPowerCountdown, starPowerTimer, tipText, touch } from "./state.js?v=20261031eu3";
-import { globalStats, saveGlobalStats } from "./stats.js?v=20261031eu3";
-import { triggerVanBertoHappy, triggerVanBertoSad } from "./vanberto.js?v=20261031eu3";
-import { spawnShields } from "./world.js?v=20261031eu3";
-import { onSecretRoomFoundForAchievements } from "../achievements.js?v=20261031eu3";
-import { ensureAudio, SFX, beep } from "../audio.js?v=20261031eu3";
-import { LEVELS } from "../data-levels.js?v=20261031eu3";
-import { VB_HIT, VB_STAR_POWER } from "../data-flavor.js?v=20261031eu3";
+import { handleBossItemCollect, handleBossMalwareCollision } from "./boss-combat.js?v=20261031eu4";
+import { vbSayRandom } from "./dialogue.js?v=20261031eu4";
+import { hitFlash } from "./dom.js?v=20261031eu4";
+import { applyHitStop, pickPraise, showFloat } from "./feedback.js?v=20261031eu4";
+import { showGameOver } from "./flow.js?v=20261031eu4";
+import { updateHearts } from "./level.js?v=20261031eu4";
+import { saveGame } from "./overlays.js?v=20261031eu4";
+import { snapPlayerToGround } from "./rooms.js?v=20261031eu4";
+import { _critterSession, _overlayPaused, _starMelodyInterval, awaitingQuiz, collectedItemIndices, collectedRoomPipes, currentLevel, currentLevelTip, difficulty, doubleJumpActive, doubleJumpCountdown, doubleJumpTimer, getMaxLives, heartsGfx, inSecretRoom, invuln, invulnBlinkEvent, invulnEndEvent, isStarAllowedExtremo, itemCountText, itemsCollected, itemsGroup, itemsTotal, lives, livesLostThisLevel, pausedByTeacher, player, powerCountdown, powerIndicator, powered, poweredTimer, sceneRef, score, scoreText, secretRoomTemp, set__hudDirty, set__starMelodyInterval, set_awaitingQuiz, set_doubleJumpActive, set_doubleJumpCountdown, set_doubleJumpTimer, set_doubleJumpUsed, set_invuln, set_invulnBlinkEvent, set_invulnEndEvent, set_itemsCollected, set_lives, set_livesLostThisLevel, set_powerCountdown, set_powered, set_poweredTimer, set_score, set_starPower, set_starPowerCountVal, set_starPowerCountdown, set_starPowerTimer, starPower, starPowerCountVal, starPowerCountdown, starPowerTimer, tipText, touch } from "./state.js?v=20261031eu4";
+import { globalStats, saveGlobalStats } from "./stats.js?v=20261031eu4";
+import { triggerVanBertoHappy, triggerVanBertoSad } from "./vanberto.js?v=20261031eu4";
+import { spawnShields } from "./world.js?v=20261031eu4";
+import { onSecretRoomFoundForAchievements } from "../achievements.js?v=20261031eu4";
+import { ensureAudio, SFX, beep } from "../audio.js?v=20261031eu4";
+import { LEVELS } from "../data-levels.js?v=20261031eu4";
+import { VB_HIT, VB_STAR_POWER } from "../data-flavor.js?v=20261031eu4";
 
 // ===== Itens =====
 
 const ITEM_LABELS={
-  estrela:    {label:"⭐ STAR POWER! 8s",      color:"#ffd700"},
-  balao:      {label:"🔑 Chave de Acesso +10", color:"#e0209a"},
-  brinquedo:  {label:"🔐 Chip de Segurança +10", color:"#a050ff"},
-  medalha:    {label:"🛡️ Escudo! PROTEGIDO",  color:"#ffd700"},
+  estrela:    {label:"⭐ ESTRELA DA EUROPA! 8s",      color:"#ffd700"},
+  balao:      {label:"📜 Tratado +10", color:"#d9a800"},
+  brinquedo:  {label:"🇪🇺 Bandeira +10", color:"#3a6bff"},
+  medalha:    {label:"🏅 Medalha Europeia! PROTEGIDO",  color:"#ffd700"},
   duplosalto: {label:"🦅 Duplo Salto! 10s",   color:"#80d0ff"},
   heart:      {label:"❤️ +1 Vida!",           color:"#e84d10"},
-  balaofesta: {label:"🔒 Cadeado Especial +10", color:"#1a90e0"}
+  balaofesta: {label:"💶 Moeda de Euro +10", color:"#e3aa00"}
 };
 
 // Cores das partículas por tipo de item
 
 const ITEM_TINTS={
   estrela:    [0xffd700, 0xffe980, 0xffffff, 0xff6b35],
-  balao:      [0xe0209a, 0xff80c0, 0xffd700, 0x9030e0],
-  brinquedo:  [0xa050ff, 0xff80c0, 0xffd700, 0xffffff],
+  balao:      [0xd9a800, 0xffe980, 0xffffff, 0xb02020],
+  brinquedo:  [0x1544b5, 0x80a8ff, 0xffd700, 0xffffff],
   medalha:    [0xffd700, 0xffe980, 0xffffff, 0xff9500],
   duplosalto: [0x80d0ff, 0xffffff, 0xffd700, 0xa0e8ff],
   heart:      [0xff2040, 0xff6080, 0xffffff, 0xe84d10],
-  balaofesta: [0x1a90e0, 0x90d0ff, 0xffffff, 0xffd700]
+  balaofesta: [0xe3aa00, 0xfff0a0, 0xffffff, 0xffd700]
 };
 
 export function onCollectItem(playerObj,itemObj){
@@ -69,7 +69,7 @@ export function onCollectItem(playerObj,itemObj){
   const lbl=ITEM_LABELS[kind]||{label:"+10 ⭐",color:"#ff6b35"};
   // Duração do Star Power varia com a dificuldade (ver getStarPowerDurationSec) —
   // o texto fixo de ITEM_LABELS.estrela ("...8s") só está certo no Fácil/Difícil.
-  const floatLabel = (kind==="estrela") ? `⭐ STAR POWER! ${getStarPowerDurationSec()}s` : lbl.label;
+  const floatLabel = (kind==="estrela") ? `⭐ ESTRELA DA EUROPA! ${getStarPowerDurationSec()}s` : lbl.label;
   showFloat(sceneRef,playerObj.x,playerObj.y-68,floatLabel,lbl.color);
   if(Math.random()<0.35) showFloat(sceneRef,playerObj.x,playerObj.y-100,pickPraise(),"#ffd700");
   ensureAudio(); SFX.coin();
@@ -78,7 +78,7 @@ export function onCollectItem(playerObj,itemObj){
   const qty  = kind==="medalha" ? 22 : kind==="heart" ? 18 : 14;
   const p=sceneRef.add.particles(0,0,"spark_item",{x:playerObj.x,y:playerObj.y,speed:{min:60,max:190},lifespan:420,quantity:qty,scale:{start:1.1,end:0},gravityY:380,tint});
   sceneRef.time.delayedCall(300,()=>p.destroy());
-  if(kind==="medalha"){givePower(sceneRef);tipText.setText("🛡️ ESCUDO ATIVO: VanBerto's está protegido e aumentado!");}
+  if(kind==="medalha"){givePower(sceneRef);tipText.setText("🏅 MEDALHA EUROPEIA: VanBerto's está protegido e aumentado!");}
   if(kind==="duplosalto"){giveDoubleJump(sceneRef);}
   if(kind==="estrela"){giveStarPower(sceneRef);}
   if(kind==="heart"){
@@ -162,7 +162,7 @@ export function onHitMalware(playerObj, malwareObj){
   });
   // ─────────────────────────────────────────────────────────
 
-  if(powered){clearPower(sceneRef);setInvuln(sceneRef,800);tipText.setText("🛡️ Escudo usado! Cuidado.");return;}
+  if(powered){clearPower(sceneRef);setInvuln(sceneRef,800);tipText.setText("🏅 Medalha usada! Cuidado.");return;}
   applyHitStop(sceneRef);
   set_lives(lives - (1)); updateHearts(); set_livesLostThisLevel(livesLostThisLevel + 1); set__hudDirty(true);
   // Bug corrigido: ver o mesmo comentário em hitByHazard — sem isto o
@@ -296,7 +296,7 @@ export let poweredCountdownVal=0;
 function givePower(scene){
   set_powered(true); SFX.power();
   player.clearTint();
-  if(powerIndicator) powerIndicator.setText("🛡️ ESCUDO 8s");
+  if(powerIndicator) powerIndicator.setText("🏅 MEDALHA 8s");
   if(poweredTimer) poweredTimer.remove(false);
   if(powerCountdown) powerCountdown.remove(false);
   poweredCountdownVal=8;

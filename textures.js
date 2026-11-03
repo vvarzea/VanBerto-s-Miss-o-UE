@@ -27,6 +27,7 @@ export function makeTextures(scene){
   europaBossesRedraw(scene); // EUROPA: os 4 bosses e projéteis redesenhados (substituem os originais)
   makeSparkTexture(scene);
   makeItemTextures(scene);
+  europaItensRedraw(scene); // EUROPA: tratado, bandeira, medalha europeia, moedas de euro e bandeirinhas
   makeVanBertoTexture(scene,"vanberto_open",false,-1);
   makeVanBertoTexture(scene,"vanberto_blink",true,-1);
   makeVanBertoTexture(scene,"vanberto_wink","wink",-1);
@@ -3346,4 +3347,74 @@ function europaBossesRedraw(scene){
     if(scene.textures.exists(key)) scene.textures.remove(key);
     const tex=scene.textures.createCanvas(key,w,h), ctx=tex.getContext(); draw(ctx); tex.refresh();
   }
+}
+
+// ===== EUROPA — itens apanháveis e decoração com temática da UE =====
+// Substituem, depois de makeItemTextures(): tratado (item_chave), bandeira (item_chip), medalha europeia (item_medalha),
+// moedas de euro (item_cadeado_0..5) e bandeirinhas de países (item_pacote_0..4).
+function euStarPoly(ctx,cx,cy,R,r){ ctx.beginPath(); for(let i=0;i<10;i++){ const a=-Math.PI/2+i*Math.PI/5, rr=i%2?r:R; ctx.lineTo(cx+Math.cos(a)*rr,cy+Math.sin(a)*rr); } ctx.closePath(); }
+function euStarRing(ctx,cx,cy,ring,R,fill){ ctx.fillStyle=fill; for(let k=0;k<12;k++){ const a=-Math.PI/2+k*Math.PI/6; euStarPoly(ctx,cx+Math.cos(a)*ring,cy+Math.sin(a)*ring,R,R*0.42); ctx.fill(); } }
+function euItemTratado(ctx){ // 52×56
+  ctx.save(); ctx.translate(26,28); ctx.rotate(-0.12); ctx.translate(-26,-28); ctx.lineJoin="round";
+  ctx.shadowColor="rgba(255,214,80,.7)"; ctx.shadowBlur=8;
+  ctx.fillStyle="#f6e5b3"; ctx.strokeStyle="#7a5418"; ctx.lineWidth=2; ctx.beginPath(); ctx.rect(11,9,30,38); ctx.fill(); ctx.shadowBlur=0; ctx.stroke();
+  for(const y of [7,43]){ ctx.fillStyle="#d9a85a"; ctx.strokeStyle="#7a5418"; ctx.beginPath(); ctx.roundRect?ctx.roundRect(7,y,38,9,4.5):ctx.rect(7,y,38,9); ctx.fill(); ctx.stroke(); ctx.fillStyle="#f0c680"; ctx.fillRect(11,y+2,30,2); }
+  ctx.strokeStyle="#8a6a30"; ctx.lineWidth=1.6; for(const y of [18,24,30]){ ctx.beginPath(); ctx.moveTo(16,y); ctx.lineTo(36,y); ctx.stroke(); }
+  ctx.fillStyle="#d23a3a"; ctx.strokeStyle="#7a1010"; ctx.lineWidth=1.8; ctx.beginPath(); ctx.arc(26,37,6.5,0,Math.PI*2); ctx.fill(); ctx.stroke();
+  ctx.fillStyle="#ffd23f"; euStarPoly(ctx,26,37,4,1.8); ctx.fill();
+  ctx.restore();
+}
+function euItemBandeira(ctx){ // 44×44
+  ctx.save(); ctx.lineJoin="round";
+  ctx.strokeStyle="#6a4012"; ctx.lineWidth=3.2; ctx.beginPath(); ctx.moveTo(8,5); ctx.lineTo(8,41); ctx.stroke();
+  ctx.fillStyle="#ffd23f"; ctx.beginPath(); ctx.arc(8,5,3,0,Math.PI*2); ctx.fill();
+  ctx.shadowColor="rgba(80,140,255,.7)"; ctx.shadowBlur=7;
+  ctx.fillStyle="#1544b5"; ctx.strokeStyle="#0a2166"; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(10,8); ctx.quadraticCurveTo(22,4,32,9); ctx.quadraticCurveTo(40,12,40,12); ctx.lineTo(40,31); ctx.quadraticCurveTo(30,34,22,29); ctx.quadraticCurveTo(15,26,10,29); ctx.closePath(); ctx.fill(); ctx.shadowBlur=0; ctx.stroke();
+  euStarRing(ctx,25,19,7,1.9,"#ffd23f");
+  ctx.restore();
+}
+function euItemMedalha(ctx){ // 52×58
+  ctx.save(); ctx.lineJoin="round";
+  ctx.fillStyle="#1544b5"; ctx.strokeStyle="#0a2166"; ctx.lineWidth=1.8;
+  for(const sg of [-1,1]){ ctx.beginPath(); ctx.moveTo(26+sg*3,2); ctx.lineTo(26+sg*14,2); ctx.lineTo(26+sg*3,30); ctx.lineTo(26-sg*1,30); ctx.closePath(); ctx.fill(); ctx.stroke(); }
+  ctx.shadowColor="rgba(255,214,80,.9)"; ctx.shadowBlur=10;
+  const g=ctx.createRadialGradient(22,28,2,26,32,22); g.addColorStop(0,"#fff0a0"); g.addColorStop(1,"#e0a800");
+  ctx.fillStyle=g; ctx.strokeStyle="#7a5400"; ctx.lineWidth=2.2; ctx.beginPath(); ctx.arc(26,34,20,0,Math.PI*2); ctx.fill(); ctx.shadowBlur=0; ctx.stroke();
+  ctx.fillStyle="#1544b5"; ctx.strokeStyle="#0a2166"; ctx.lineWidth=1.8; ctx.beginPath(); ctx.arc(26,34,14.5,0,Math.PI*2); ctx.fill(); ctx.stroke();
+  euStarRing(ctx,26,34,9,2.6,"#ffd23f");
+  ctx.restore();
+}
+function euItemMoeda(ctx,tipo){ // 32×32 — moeda de euro
+  const P={ ouro:["#fff0a0","#e3aa00","#7a5400","#9a6b00"], prata:["#f4f6fb","#b4bccf","#5a6378","#6a7388"], cobre:["#ffd0a8","#c9743a","#6a3512","#7d4219"] }[tipo.cor];
+  ctx.save(); ctx.shadowColor="rgba(255,225,120,.6)"; ctx.shadowBlur=5;
+  const g=ctx.createRadialGradient(12,11,2,16,16,16); g.addColorStop(0,P[0]); g.addColorStop(1,P[1]);
+  ctx.fillStyle=g; ctx.strokeStyle=P[2]; ctx.lineWidth=2; ctx.beginPath(); ctx.arc(16,16,14,0,Math.PI*2); ctx.fill(); ctx.shadowBlur=0; ctx.stroke();
+  if(tipo.bimetal){ ctx.fillStyle="#d8deea"; ctx.strokeStyle=P[2]; ctx.lineWidth=1.4; ctx.beginPath(); ctx.arc(16,16,9,0,Math.PI*2); ctx.fill(); ctx.stroke(); }
+  else { ctx.strokeStyle=P[2]; ctx.lineWidth=1.2; ctx.beginPath(); ctx.arc(16,16,10.5,0,Math.PI*2); ctx.stroke(); }
+  ctx.fillStyle=P[3]; ctx.font="bold 15px Arial"; ctx.textAlign="center"; ctx.textBaseline="middle"; ctx.fillText(tipo.texto||"€",16,17);
+  ctx.restore();
+}
+function euItemBandeirinha(ctx,pais){ // 48×36 — bandeira de um país
+  ctx.save(); ctx.lineJoin="round";
+  ctx.shadowColor="rgba(0,0,0,.35)"; ctx.shadowBlur=4;
+  ctx.fillStyle="#fff"; ctx.beginPath(); ctx.rect(4,4,40,28); ctx.fill(); ctx.shadowBlur=0;
+  ctx.save(); ctx.beginPath(); ctx.rect(4,4,40,28); ctx.clip();
+  if(pais==="pt"){ ctx.fillStyle="#0a7a2e"; ctx.fillRect(4,4,16,28); ctx.fillStyle="#d21f2b"; ctx.fillRect(20,4,24,28); ctx.fillStyle="#ffd23f"; ctx.beginPath(); ctx.arc(20,18,5.5,0,Math.PI*2); ctx.fill(); ctx.fillStyle="#d21f2b"; ctx.fillRect(18,15,4,6); }
+  if(pais==="fr"){ ctx.fillStyle="#1d3fa8"; ctx.fillRect(4,4,14,28); ctx.fillStyle="#ffffff"; ctx.fillRect(18,4,13,28); ctx.fillStyle="#d21f2b"; ctx.fillRect(31,4,13,28); }
+  if(pais==="es"){ ctx.fillStyle="#c8102e"; ctx.fillRect(4,4,40,28); ctx.fillStyle="#ffc400"; ctx.fillRect(4,11,40,14); }
+  if(pais==="it"){ ctx.fillStyle="#0a8a3a"; ctx.fillRect(4,4,14,28); ctx.fillStyle="#ffffff"; ctx.fillRect(18,4,13,28); ctx.fillStyle="#d21f2b"; ctx.fillRect(31,4,13,28); }
+  if(pais==="de"){ ctx.fillStyle="#111"; ctx.fillRect(4,4,40,10); ctx.fillStyle="#d21f2b"; ctx.fillRect(4,13,40,10); ctx.fillStyle="#ffc400"; ctx.fillRect(4,22,40,10); }
+  const sh=ctx.createLinearGradient(4,4,44,32); sh.addColorStop(0,"rgba(255,255,255,.35)"); sh.addColorStop(.5,"rgba(255,255,255,0)"); sh.addColorStop(1,"rgba(0,0,0,.15)"); ctx.fillStyle=sh; ctx.fillRect(4,4,40,28);
+  ctx.restore();
+  ctx.strokeStyle="#33405f"; ctx.lineWidth=1.8; ctx.strokeRect(4,4,40,28);
+  ctx.restore();
+}
+function europaItensRedraw(scene){
+  const novo=(key,w,h,fn)=>{ if(scene.textures.exists(key)) scene.textures.remove(key); const tex=scene.textures.createCanvas(key,w,h); fn(tex.getContext()); tex.refresh(); };
+  novo("item_chave",52,56,euItemTratado);
+  novo("item_chip",44,44,euItemBandeira);
+  novo("item_medalha",52,58,euItemMedalha);
+  const moedas=[{cor:"ouro"},{cor:"ouro",bimetal:true,texto:"2€"},{cor:"ouro"},{cor:"prata"},{cor:"cobre",texto:"c"},{cor:"ouro",bimetal:true}];
+  moedas.forEach((m,i)=>novo("item_cadeado_"+i,32,32,ctx=>euItemMoeda(ctx,m)));
+  ["pt","fr","es","it","de"].forEach((p,i)=>novo("item_pacote_"+i,48,36,ctx=>euItemBandeirinha(ctx,p)));
 }

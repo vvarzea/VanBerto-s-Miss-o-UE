@@ -12,9 +12,9 @@ Feito sobre o motor dos jogos «Missão» do VanBerto's (20 níveis, 4 mundos, 4
 | 3 — Fortaleza da União | 10–15 | Dia da Europa e Schuman, paz, história, valores, direitos, instituições | Titã da Discórdia |
 | 4 — O Futuro da Europa | 16–20 | ambiente, energia, ciência, Erasmus+, jovens e cidadania digital | Sombra da Indiferença |
 
-**Conteúdo:** as perguntas estão em `data-quiz.js`, gerado por `_dev/gerar_quiz_europa.py` (edita o gerador e corre `python3 _dev/gerar_quiz_europa.py`).
+**Conteúdo:** as perguntas estão em `data-quiz.js`, gerado por `_dev/importar_perguntas.py` a partir de `_dev/perguntas_atualizadas.json` (extraído do Word «Perguntas Atualizadas»). Cartões «Sabias que…?» e dicas: `_dev/cartoes_dicas.json`. (`_dev/gerar_quiz_europa.py` é o gerador anterior, só para consulta.)
 Os ids internos dos bosses mantêm os nomes do motor (`virus_gigante` = Guardião dos Mapas, `monstro_phishing` = Dragão, `robo_spam` = Titã, `espiao_sombras` = Sombra).
-Arte da autora: mapas dos mundos 1 a 4 (`map-mundo1..4.webp`), fundos dos níveis (`mundoN_*.webp`, recortes das mesmas imagens sem letreiros nem estrelas desenhadas) e sala secreta (`sala_secreta.webp`). Gerados por `_dev/gerar_fundos.py`.
+Arte da autora: mapas dos mundos 1 a 4 (`map-mundo1..4.webp`), fundos dos níveis (`mundoN_*.webp`, as mesmas imagens, inteiras e só sem as estrelas desenhadas) e sala secreta (`sala_secreta.webp`). Gerados por `_dev/gerar_fundos.py`.
 
 ---
 (Notas técnicas do motor, herdadas do jogo base:)
@@ -134,7 +134,7 @@ e abrir <http://localhost:8000>.
 ## Versões e cache
 
 Todos os ficheiros carregados pelo `index.html` e todos os `import` internos levam **a mesma**
-string `?v=…` (atualmente `20261031eu3`). Tem de ser sempre igual em todo o lado: o mesmo módulo
+string `?v=…` (atualmente `20261031eu4`). Tem de ser sempre igual em todo o lado: o mesmo módulo
 importado com strings diferentes é carregado duas vezes, como duas instâncias separadas, e os
 browsers que já têm o jogo podem ficar com uma mistura de ficheiros velhos e novos.
 

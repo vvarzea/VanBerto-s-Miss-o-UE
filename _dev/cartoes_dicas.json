@@ -1,0 +1,122 @@
+[
+ {
+  "chave": "mapa_europa",
+  "titulo": "🗺️ Onde Fica a Europa?",
+  "texto": "A Europa é um continente no hemisfério norte, banhado pelo Oceano Atlântico, pelo Oceano Ártico e por vários mares, como o Mediterrâneo e o Báltico. Portugal fica no extremo sudoeste, e o Cabo da Roca é o ponto mais ocidental da Europa continental.",
+  "dica": "A Europa e a Ásia formam um único bloco de terra, a Eurásia. Portugal está no extremo ocidental da Europa, virado para o Atlântico."
+ },
+ {
+  "chave": "portugal_europa",
+  "titulo": "🇵🇹 Portugal no Mapa da Europa",
+  "texto": "Portugal tem fronteira terrestre apenas com a Espanha, na Península Ibérica. Inclui também dois arquipélagos no Atlântico, os Açores e a Madeira. Aderiu à então Comunidade Económica Europeia em 1986, depois de o tratado ter sido assinado em 1985 no Mosteiro dos Jerónimos, em Lisboa.",
+  "dica": "Portugal e Espanha aderiram juntos à CEE, hoje União Europeia. Os Açores e a Madeira são regiões ultraperiféricas da UE."
+ },
+ {
+  "chave": "paises_capitais",
+  "titulo": "🏛️ Países e Capitais",
+  "texto": "A União Europeia tem 27 países. Cada um tem a sua capital: Lisboa (Portugal), Madrid (Espanha), Paris (França), Roma (Itália), Berlim (Alemanha) e Atenas (Grécia) são só alguns exemplos. Países como a Noruega, a Suíça e o Reino Unido ficam na Europa, mas não fazem parte da UE.",
+  "dica": "A UE tem 27 países. Estar na Europa não é o mesmo que ser membro da UE: a Noruega, a Suíça e o Reino Unido ficam na Europa, mas não são membros."
+ },
+ {
+  "chave": "bandeira_ue",
+  "titulo": "🇪🇺 A Bandeira Azul das 12 Estrelas",
+  "texto": "A bandeira da União Europeia tem um fundo azul com doze estrelas douradas em círculo. O número doze é um símbolo de perfeição e plenitude, não tem a ver com o número de países, por isso não muda quando entram novos membros. O círculo representa a união e a harmonia entre os povos da Europa.",
+  "dica": "A bandeira tem sempre 12 estrelas douradas em círculo sobre fundo azul, mesmo com 27 países na UE."
+ },
+ {
+  "chave": "simbolos_ue",
+  "titulo": "🎶 Os Símbolos da União Europeia",
+  "texto": "A UE tem vários símbolos: a bandeira de doze estrelas, o hino (a «Ode à Alegria», de Beethoven, só música), o lema «Unida na diversidade», a moeda euro e o Dia da Europa, celebrado a 9 de maio. O euro entrou em circulação em notas e moedas a 1 de janeiro de 2002 e, em 2026, é usado por 21 países.",
+  "dica": "O hino é a «Ode à Alegria» de Beethoven, o lema é «Unida na diversidade» e o Dia da Europa é a 9 de maio."
+ },
+ {
+  "chave": "linguas",
+  "titulo": "🗣️ Tantas Línguas, Uma Europa",
+  "texto": "A União Europeia tem 24 línguas oficiais, como o português, o espanhol, o francês, o alemão e o grego. Quase todas usam o alfabeto latino, mas o grego e o búlgaro usam outros alfabetos. As línguas são uma riqueza da Europa e há mais, como o mirandês, falado em Portugal, que não são oficiais da UE.",
+  "dica": "A UE tem 24 línguas oficiais para que cada cidadão possa falar com as instituições na sua língua."
+ },
+ {
+  "chave": "monumentos",
+  "titulo": "🏰 Monumentos e Património",
+  "texto": "A Europa está cheia de monumentos famosos: a Torre Eiffel em Paris, o Coliseu em Roma, a Acrópole em Atenas e a Sagrada Família em Barcelona. Portugal tem a Torre de Belém e o Mosteiro dos Jerónimos, em Lisboa, e o centro histórico de Angra do Heroísmo, nos Açores, que são Património Mundial da UNESCO.",
+  "dica": "O património conta a história dos povos e deve ser protegido para as gerações futuras."
+ },
+ {
+  "chave": "gastronomia_musica",
+  "titulo": "🍕 Sabores, Música e Tradições",
+  "texto": "Cada país europeu tem sabores, músicas e festas próprias: a pizza em Itália, a paella em Espanha, o pastel de nata em Portugal, o croissant em França. O fado, símbolo musical português, é Património Imaterial da Humanidade desde 2011 e o flamenco espanhol também é reconhecido pela UNESCO.",
+  "dica": "A comida, a música e as festas contam a história de cada povo. Conhecê-las é uma forma de respeitar a diversidade."
+ },
+ {
+  "chave": "diversidade_respeito",
+  "titulo": "🤝 Diversidade e Respeito",
+  "texto": "A Europa é feita de muitas línguas, religiões e modos de vida, e essa diversidade é uma riqueza. A Carta dos Direitos Fundamentais da UE proíbe a discriminação, ou seja, tratar alguém pior por causa da sua origem, cor, religião, deficiência ou idade. Respeitar as diferenças faz parte do nosso dia a dia.",
+  "dica": "Na Europa vivemos juntos com respeito pelas diferenças. Incluir os outros faz-nos mais fortes."
+ },
+ {
+  "chave": "dia_europa_schuman",
+  "titulo": "📜 Dia da Europa e Declaração Schuman",
+  "texto": "A 9 de maio de 1950, o ministro francês dos Negócios Estrangeiros, Robert Schuman, propôs que a França e a Alemanha pusessem em comum a produção de carvão e aço, para tornar uma nova guerra impensável. Essa Declaração Schuman é o ponto de partida da construção europeia e, por isso, o 9 de maio é o Dia da Europa.",
+  "dica": "O Dia da Europa, a 9 de maio, celebra a paz e a união dos povos europeus."
+ },
+ {
+  "chave": "paz_cooperacao",
+  "titulo": "🕊️ Paz e Cooperação",
+  "texto": "A Europa viveu duas guerras mundiais no século XX. Depois da Segunda Guerra Mundial, os países perceberam que cooperar era a melhor forma de manter a paz. Em 2012, a União Europeia recebeu o Prémio Nobel da Paz por mais de seis décadas de contribuição para a paz, a reconciliação e a democracia na Europa.",
+  "dica": "Cooperar significa trabalhar juntos. A UE nasceu para que os países europeus resolvessem os problemas através do diálogo."
+ },
+ {
+  "chave": "historia_ue",
+  "titulo": "🏛️ Da CECA à União Europeia",
+  "texto": "Em 1957, seis países (a Bélgica, a França, a Alemanha, a Itália, o Luxemburgo e os Países Baixos) assinaram o Tratado de Roma e criaram a Comunidade Económica Europeia. O Tratado de Maastricht (1992) deu origem à União Europeia, o euro chegou em 2002 e hoje a UE tem 27 países.",
+  "dica": "A CEE nasceu em 1957 com 6 países. Hoje a UE tem 27, depois de vários alargamentos."
+ },
+ {
+  "chave": "valores_europeus",
+  "titulo": "⚖️ Valores Europeus",
+  "texto": "O artigo 2.º do Tratado da União Europeia enumera os valores em que a UE assenta: o respeito pela dignidade humana, a liberdade, a democracia, a igualdade, o Estado de direito e o respeito pelos direitos humanos. São os valores que unem os países europeus e que cada um de nós pode viver no dia a dia.",
+  "dica": "Dignidade, liberdade, democracia, igualdade e Estado de direito são os valores que unem a Europa."
+ },
+ {
+  "chave": "direitos_cidadaos",
+  "titulo": "🪪 Direitos dos Cidadãos",
+  "texto": "Quem tem nacionalidade de um país da UE é também cidadão europeu. Isso dá direito a viver, estudar e trabalhar noutro país da UE, a votar nas eleições europeias, a ser protegido por qualquer embaixada de um país da UE fora da Europa e a usar o Cartão Europeu de Seguro de Doença. A Carta dos Direitos Fundamentais da UE reúne estes direitos.",
+  "dica": "Ser cidadão europeu significa ter direitos em toda a UE, como viver, estudar e trabalhar noutro país."
+ },
+ {
+  "chave": "instituicoes",
+  "titulo": "🏢 As Instituições Europeias",
+  "texto": "O Parlamento Europeu, eleito diretamente pelos cidadãos, discute e aprova leis. A Comissão Europeia propõe leis e faz cumprir as regras. O Conselho da UE reúne os governos dos países. O Tribunal de Justiça, no Luxemburgo, garante que o direito europeu é cumprido. Em 2024, Portugal elegeu 21 dos 720 eurodeputados.",
+  "dica": "O Parlamento Europeu é eleito de cinco em cinco anos. A Comissão fica em Bruxelas, o Tribunal de Justiça no Luxemburgo e o Banco Central Europeu em Frankfurt."
+ },
+ {
+  "chave": "ambiente",
+  "titulo": "🌱 Proteger o Ambiente",
+  "texto": "A UE quer ser o primeiro continente com neutralidade climática em 2050. O Pacto Ecológico Europeu apoia a energia limpa, a reciclagem e a economia circular. Cada um de nós pode ajudar: separar o lixo, poupar água e energia e usar mais o transporte público.",
+  "dica": "Reduzir, reutilizar e reciclar. Pequenos gestos fazem a diferença!"
+ },
+ {
+  "chave": "energia_clima",
+  "titulo": "☀️ Energia Limpa e Clima",
+  "texto": "As energias renováveis, como a solar, a eólica, a hídrica e a geotérmica, produzem eletricidade sem esgotar os recursos da Terra. Portugal produz mais de metade da sua eletricidade com fontes renováveis em vários anos recentes, e nos Açores há eletricidade a partir do calor da própria terra, a energia geotérmica.",
+  "dica": "Poupar energia e usar energias renováveis ajuda a travar as alterações climáticas."
+ },
+ {
+  "chave": "ciencia_inovacao",
+  "titulo": "🔬 Ciência e Inovação",
+  "texto": "A UE investe em ciência e tecnologia: o programa Horizonte Europa apoia a investigação, o Galileo é o sistema europeu de navegação por satélite e o Copernicus observa a Terra do espaço para vigiar o clima e os oceanos. O Regulamento Geral de Proteção de Dados (RGPD) protege também a privacidade dos cidadãos.",
+  "dica": "A ciência e a inovação ajudam a resolver problemas, como as alterações climáticas e as doenças."
+ },
+ {
+  "chave": "mobilidade_erasmus",
+  "titulo": "🚆 Viajar e Estudar na Europa",
+  "texto": "Na UE, os jovens podem estudar, fazer estágios ou voluntariado noutro país com o programa Erasmus+, criado em 1987. O espaço Schengen permite atravessar fronteiras sem controlos, o euro facilita os pagamentos e o roaming nos países da UE já não custa extra. O DiscoverEU oferece passes de comboio a jovens de 18 anos.",
+  "dica": "Erasmus+, Schengen e o euro tornam mais fácil estudar, viajar e conhecer a Europa."
+ },
+ {
+  "chave": "jovens_cidadania_digital",
+  "titulo": "🌟 Jovens e Cidadania Digital",
+  "texto": "Os jovens são o futuro da Europa e têm voz: votam (a partir da idade mínima do seu país), participam em consultas e associações e podem apresentar ideias. Na internet, ser cidadão digital é usar a tecnologia com respeito, segurança e espírito crítico, sem espalhar desinformação. O contrário de indiferença é participar!",
+  "dica": "A Europa constrói-se com todos nós. Participa, informa-te bem e usa a internet com responsabilidade."
+ }
+]
